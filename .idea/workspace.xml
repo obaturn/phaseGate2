@@ -5,28 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4e2ad661-3416-4460-96ff-e025f8851d25" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/data/model/Admin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/data/model/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/data/repository/AdminRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/data/repository/UserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/dto/AdminAccountSetUp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/dto/AdminAccountSetUpResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/dto/AdminDisableAccountRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/dto/AdminDisableAccountResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/dto/UserRegisterRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/dto/UserView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/dto/ViewRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/dto/userRegisterResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/dto/userResetPassword.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/dto/userResetPasswordRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/services/UserServices.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/services/UserServicesImplementation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,7 +129,7 @@
       <workItem from="1725405518005" duration="116000" />
       <workItem from="1725406384026" duration="392000" />
       <workItem from="1725455107215" duration="1934000" />
-      <workItem from="1725467041078" duration="4284000" />
+      <workItem from="1725467041078" duration="5374000" />
     </task>
     <servers />
   </component>
