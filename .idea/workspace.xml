@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4e2ad661-3416-4460-96ff-e025f8851d25" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/data/model/Admin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/data/model/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/data/repository/AdminRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/data/repository/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/dto/AdminAccountSetUp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/dto/AdminAccountSetUpResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/dto/AdminDisableAccountRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/dto/AdminDisableAccountResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/dto/UserRegisterRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/dto/UserView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/dto/ViewRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/dto/userRegisterResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/dto/userResetPassword.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/dto/userResetPasswordRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/services/UserServices.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/services/UserServicesImplementation.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2kmMrr4LzIEHVY1JnX6h4F65foO" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Maven.PasswordManagement [clean].executor": "Run",
+    "Maven.PasswordManagement [compile].executor": "Run",
+    "Maven.PasswordManagement [install].executor": "Run",
+    "Maven.PasswordManagement [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor": "Run",
+    "Maven.PasswordManagement [org.apache.maven.plugins:maven-install-plugin:3.1.1:install-file].executor": "Run",
+    "Maven.PasswordManagement [org.apache.maven.plugins:maven-install-plugin:3.1.1:install].executor": "Run",
+    "Maven.PasswordManagement [package].executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.Main.executor": "Run",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Vera/.jdks/corretto-17.0.12",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Vera\Desktop\java\PasswordManagement\src\main\java\com\semicolon\africa" />
+      <recent name="C:\Users\Vera\Desktop\java\PasswordManagement\src\main\java\com\semicolon\africa\Data" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="PasswordManagement" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.semicolon.africa.Main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.semicolon.africa.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4e2ad661-3416-4460-96ff-e025f8851d25" name="Changes" comment="" />
+      <created>1723884503271</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1723884503271</updated>
+      <workItem from="1723884505315" duration="3122000" />
+      <workItem from="1725361389275" duration="2064000" />
+      <workItem from="1725363569955" duration="2399000" />
+      <workItem from="1725366013626" duration="281000" />
+      <workItem from="1725366319174" duration="3189000" />
+      <workItem from="1725392204791" duration="2141000" />
+      <workItem from="1725394391798" duration="770000" />
+      <workItem from="1725395205433" duration="2167000" />
+      <workItem from="1725399948559" duration="205000" />
+      <workItem from="1725400496330" duration="23000" />
+      <workItem from="1725400704371" duration="21000" />
+      <workItem from="1725400876241" duration="18000" />
+      <workItem from="1725401262184" duration="33000" />
+      <workItem from="1725402317595" duration="122000" />
+      <workItem from="1725402706862" duration="47000" />
+      <workItem from="1725402850231" duration="14000" />
+      <workItem from="1725403590188" duration="15000" />
+      <workItem from="1725403633083" duration="27000" />
+      <workItem from="1725404187708" duration="163000" />
+      <workItem from="1725404434897" duration="354000" />
+      <workItem from="1725405415040" duration="29000" />
+      <workItem from="1725405518005" duration="116000" />
+      <workItem from="1725406384026" duration="392000" />
+      <workItem from="1725455107215" duration="1934000" />
+      <workItem from="1725467041078" duration="4284000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
