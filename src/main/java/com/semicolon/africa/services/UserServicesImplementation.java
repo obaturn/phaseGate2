@@ -2,6 +2,8 @@ package com.semicolon.africa.services;
 
 import com.semicolon.africa.data.model.User;
 import com.semicolon.africa.data.repository.UserRepository;
+import com.semicolon.africa.dto.UserLoginRequest;
+import com.semicolon.africa.dto.UserLoginResponse;
 import com.semicolon.africa.dto.UserRegisterRequest;
 import com.semicolon.africa.dto.UserRegisterResponse;
 import com.semicolon.africa.exceptions.UserRegisterExceptions;
@@ -39,6 +41,8 @@ public class UserServicesImplementation implements UserServices {
         response.setStatusMessage("200 created successfully");
         return response;
     }
+
+
     private void validateUserRegistration(UserRegisterRequest userRegisterRequest) {
         if (userRegisterRequest.getFirstName() == null || userRegisterRequest.getFirstName().trim().isEmpty()) {
             throw new UserRegisterExceptions("first name is required pls input firstName");
@@ -69,7 +73,39 @@ public class UserServicesImplementation implements UserServices {
         if(userOptional.isPresent()){
             throw new UserRegisterExceptions("username already exists");
         }
-
+        Optional<User>duplicateFirstNameAndLastName = userRepository.findByFirstNameAndLastName(userRegisterRequest.getFirstName(), userRegisterRequest.getLastName());
+        if(duplicateFirstNameAndLastName.isPresent()){
+            throw new UserRegisterExceptions("first name already exists and last name already exists");
+        }
 
     }
-}
+
+    @Override
+    public UserLoginResponse loginUser(UserLoginRequest userLoginRequest) {
+        if (userLoginRequest.getUsername() == null || userLoginRequest.getUsername().trim().isEmpty()) {
+            throw new UserRegisterExceptions("Username is empty, please input username");
+        }
+        if (userLoginRequest.getPassword() == null || userLoginRequest.getPassword().trim().isEmpty()) {
+            throw new UserRegisterExceptions("Password is empty, please input password");
+        }
+
+        Optional<User> userOptional = userRepository.findByUserName(userLoginRequest.getUsername());
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
+            if (userLoginRequest.getPassword().equals(user.getPassword())) {
+                user.setLogin(true);
+                userRepository.save(user);
+
+                UserLoginResponse response = new UserLoginResponse();
+                response.setMessage("Login successful");
+                response.setLoginStatus(true);
+                return response;
+            } else {
+                throw new UserRegisterExceptions("Invalid password");
+            }
+        } else {
+            throw new UserRegisterExceptions("Username not found");
+        }
+    }
+    }
+

@@ -3,6 +3,6 @@ package com.semicolon.africa.dto;
 import lombok.Data;
 
 @Data
-public class userResetPassword {
+public class UserResetPasswordResponse {
     public String username;
 }

@@ -5,16 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4e2ad661-3416-4460-96ff-e025f8851d25" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/data/model/Admin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/data/model/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/data/repository/AdminRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/data/repository/UserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/dto/UserRegisterRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/dto/UserRegisterResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/exceptions/UserRegisterExceptions.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/services/UserServices.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/services/UserServicesImplementation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/dto/UserLoginRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/dto/UserLoginResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/applivation.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/semicolon/africa/services/UserServicesImplementationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/dto/userResetPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/dto/UserResetPasswordResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/dto/userResetPasswordRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/dto/UserResetPasswordRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/services/UserServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/services/UserServices.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/services/UserServicesImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/services/UserServicesImplementation.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +28,7 @@
       <list>
         <option value="Enum" />
         <option value="Interface" />
+        <option value="JUnit5 Test Class" />
         <option value="Class" />
       </list>
     </option>
@@ -44,6 +47,9 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;JUnit.UserServicesImplementationTest.TestThat_DuplicateFirstNameAndLastName_ThrowsException.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserServicesImplementationTest.TestThat_I_registerUser.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserServicesImplementationTest.test_That_I_registerUser.executor&quot;: &quot;Run&quot;,
     &quot;Maven.PasswordManagement [clean].executor&quot;: &quot;Run&quot;,
     &quot;Maven.PasswordManagement [compile].executor&quot;: &quot;Run&quot;,
     &quot;Maven.PasswordManagement [install].executor&quot;: &quot;Run&quot;,
@@ -57,9 +63,12 @@
     &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;Spring Boot.Main.executor&quot;: &quot;Run&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_directory_selection&quot;: &quot;C:/Users/Vera/Desktop/java/PasswordManagement/src/test&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/Vera/.jdks/corretto-17.0.12&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -78,8 +87,67 @@
       <recent name="C:\Users\Vera\Desktop\java\PasswordManagement\src\main\java\com\semicolon\africa" />
       <recent name="C:\Users\Vera\Desktop\java\PasswordManagement\src\main\java\com\semicolon\africa\Data" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.semicolon.africa.services" />
+    </key>
   </component>
-  <component name="RunManager">
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn install" />
+    </option>
+  </component>
+  <component name="RunManager" selected="JUnit.UserServicesImplementationTest.TestThat_DuplicateFirstNameAndLastName_ThrowsException">
+    <configuration name="UserServicesImplementationTest.TestThat_DuplicateFirstNameAndLastName_ThrowsException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PasswordManagement" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.semicolon.africa.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.semicolon.africa.services" />
+      <option name="MAIN_CLASS_NAME" value="com.semicolon.africa.services.UserServicesImplementationTest" />
+      <option name="METHOD_NAME" value="TestThat_DuplicateFirstNameAndLastName_ThrowsException" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServicesImplementationTest.TestThat_I_registerUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PasswordManagement" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.semicolon.africa.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.semicolon.africa.services" />
+      <option name="MAIN_CLASS_NAME" value="com.semicolon.africa.services.UserServicesImplementationTest" />
+      <option name="METHOD_NAME" value="TestThat_I_registerUser" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServicesImplementationTest.test_That_I_registerUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PasswordManagement" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.semicolon.africa.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.semicolon.africa.services" />
+      <option name="MAIN_CLASS_NAME" value="com.semicolon.africa.services.UserServicesImplementationTest" />
+      <option name="METHOD_NAME" value="test_That_I_registerUser" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="PasswordManagement" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.semicolon.africa.Main" />
@@ -95,6 +163,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.UserServicesImplementationTest.TestThat_DuplicateFirstNameAndLastName_ThrowsException" />
+        <item itemvalue="JUnit.UserServicesImplementationTest.TestThat_I_registerUser" />
+        <item itemvalue="JUnit.UserServicesImplementationTest.test_That_I_registerUser" />
         <item itemvalue="Spring Boot.Main" />
       </list>
     </recent_temporary>
@@ -143,6 +214,13 @@
       <workItem from="1725512786042" duration="2382000" />
       <workItem from="1725515239573" duration="827000" />
       <workItem from="1725516278268" duration="341000" />
+      <workItem from="1725516784991" duration="2555000" />
+      <workItem from="1725520304856" duration="171000" />
+      <workItem from="1725520515235" duration="2839000" />
+      <workItem from="1725523415932" duration="1259000" />
+      <workItem from="1725524704804" duration="2661000" />
+      <workItem from="1725538633886" duration="5202000" />
+      <workItem from="1725544394893" duration="3208000" />
     </task>
     <servers />
   </component>
