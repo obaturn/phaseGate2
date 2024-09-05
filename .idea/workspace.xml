@@ -5,26 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4e2ad661-3416-4460-96ff-e025f8851d25" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.pom.xml.swp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.pom_LOCAL_1699.xml.swp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.pom_REMOTE_1699.xml.swp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom_BACKUP_1699.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom_BASE_1699.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom_LOCAL_1699.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom_REMOTE_1699.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/data/model/Admin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/data/model/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/data/repository/AdminRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/data/repository/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/dto/UserRegisterRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/dto/UserRegisterResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/exceptions/UserRegisterExceptions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/services/UserServices.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/services/UserServicesImplementation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/data/model/Admin.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/data/model/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/data/repository/AdminRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/data/repository/UserRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/dto/AdminAccountSetUp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/dto/AdminAccountSetUpResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/dto/AdminDisableAccountRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/dto/AdminDisableAccountResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/dto/UserRegisterRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/dto/userRegisterResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/services/UserServices.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/services/UserServicesImplementation.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +25,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -51,37 +42,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Maven.PasswordManagement [clean].executor": "Run",
-    "Maven.PasswordManagement [compile].executor": "Run",
-    "Maven.PasswordManagement [install].executor": "Run",
-    "Maven.PasswordManagement [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor": "Run",
-    "Maven.PasswordManagement [org.apache.maven.plugins:maven-install-plugin:3.1.1:install-file].executor": "Run",
-    "Maven.PasswordManagement [org.apache.maven.plugins:maven-install-plugin:3.1.1:install].executor": "Run",
-    "Maven.PasswordManagement [package].executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.Main.executor": "Run",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Vera/.jdks/corretto-17.0.12",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Maven.PasswordManagement [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.PasswordManagement [compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.PasswordManagement [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.PasswordManagement [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.PasswordManagement [org.apache.maven.plugins:maven-install-plugin:3.1.1:install-file].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.PasswordManagement [org.apache.maven.plugins:maven-install-plugin:3.1.1:install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.PasswordManagement [package].executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.Main.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Vera/.jdks/corretto-17.0.12&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Vera\Desktop\java\PasswordManagement\src\main\java\com\semicolon\africa" />
@@ -148,7 +139,10 @@
       <workItem from="1725405518005" duration="116000" />
       <workItem from="1725406384026" duration="392000" />
       <workItem from="1725455107215" duration="1934000" />
-      <workItem from="1725467041078" duration="8589000" />
+      <workItem from="1725467041078" duration="13718000" />
+      <workItem from="1725512786042" duration="2382000" />
+      <workItem from="1725515239573" duration="827000" />
+      <workItem from="1725516278268" duration="341000" />
     </task>
     <servers />
   </component>
