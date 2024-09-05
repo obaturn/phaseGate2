@@ -2,12 +2,12 @@ package com.semicolon.africa.services;
 
 import com.semicolon.africa.data.model.User;
 import com.semicolon.africa.data.repository.UserRepository;
-import com.semicolon.africa.dto.UserLoginRequest;
-import com.semicolon.africa.dto.UserLoginResponse;
-import com.semicolon.africa.dto.UserRegisterRequest;
-import com.semicolon.africa.dto.UserRegisterResponse;
+import com.semicolon.africa.dto.*;
 import com.semicolon.africa.exceptions.UserRegisterExceptions;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -16,6 +16,7 @@ import java.util.Optional;
 public class UserServicesImplementation implements UserServices {
     @Autowired
     private UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
     @Override
     public UserRegisterResponse registerUser(UserRegisterRequest userRegisterRequest) {
         try{
@@ -27,12 +28,12 @@ public class UserServicesImplementation implements UserServices {
         user.setFirstName(userRegisterRequest.getFirstName());
         user.setLastName(userRegisterRequest.getLastName());
         user.setEmail(userRegisterRequest.getEmail());
-        user.setPassword(userRegisterRequest.getPassword());
+        user.setPassword(passwordEncoder.encode(userRegisterRequest.getPassword()));
         user.setPhoneNumber(userRegisterRequest.getPhoneNumber());
         user.setGender(userRegisterRequest.getGender());
         user.setUserName(userRegisterRequest.getUserName());
         user.setAddress(userRegisterRequest.getAddress());
-        user.setConfirmPassword(userRegisterRequest.getConfirmPassword());
+        user.setConfirmPassword(passwordEncoder.encode(userRegisterRequest.getConfirmPassword()));
         userRepository.save(user);
         UserRegisterResponse response = new UserRegisterResponse();
         response.setMessage("you have been registered successfully");
@@ -92,7 +93,10 @@ public class UserServicesImplementation implements UserServices {
         Optional<User> userOptional = userRepository.findByUserName(userLoginRequest.getUsername());
         if (userOptional.isPresent()) {
             User user = userOptional.get();
-            if (userLoginRequest.getPassword().equals(user.getPassword())) {
+            if(user.isDisable()){
+                throw new UserRegisterExceptions("your account is disabled pls inform our customer account");
+            }
+            if (passwordEncoder.matches(userLoginRequest.getPassword(), user.getPassword())) {
                 user.setLogin(true);
                 userRepository.save(user);
 
@@ -107,5 +111,20 @@ public class UserServicesImplementation implements UserServices {
             throw new UserRegisterExceptions("Username not found");
         }
     }
+
+    @Override
+    public UserResetPasswordResponse resetPassword(UserResetPasswordRequest userResetPasswordRequest) {
+        Optional<User> optionalUser = userRepository.findByEmail(userResetPasswordRequest.getEmail());
+        if (optionalUser.isPresent()) {
+            User user = optionalUser.get();
+            BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+            user.setPassword(passwordEncoder.encode(userResetPasswordRequest.getPassword()));
+            userRepository.save(user);
+            UserResetPasswordResponse response = new UserResetPasswordResponse();
+            response.setMessage("Your password has been successfully reset");
+            return response;
+        }
+        throw new UserRegisterExceptions("user not found");
     }
+}
 

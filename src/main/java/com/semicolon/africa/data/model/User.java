@@ -20,6 +20,7 @@ public class User {
     private String userName;
     private String gender;
     private boolean login;
+    private boolean isDisable;
     private String confirmPassword;
 
 }
