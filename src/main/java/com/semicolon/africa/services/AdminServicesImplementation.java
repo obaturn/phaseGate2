@@ -1,23 +1,26 @@
 package com.semicolon.africa.services;
 
 import com.semicolon.africa.data.model.Admin;
+import com.semicolon.africa.data.model.User;
 import com.semicolon.africa.data.repository.AdminRepository;
-import com.semicolon.africa.dto.AdminLoginRequest;
-import com.semicolon.africa.dto.AdminLoginResponse;
-import com.semicolon.africa.dto.AdminRegisterRequest;
-import com.semicolon.africa.dto.AdminRegisterResponse;
+import com.semicolon.africa.data.repository.UserRepository;
+import com.semicolon.africa.dto.*;
 import com.semicolon.africa.exceptions.AdminExceptions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 
 @Service
 public class AdminServicesImplementation implements AdminServices {
     @Autowired
     private AdminRepository adminRepository;
+    @Autowired
+    private UserRepository userRepository;
 
     private final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
     @Override
@@ -74,6 +77,54 @@ public class AdminServicesImplementation implements AdminServices {
         adminLoginResponse.setMessage("You have successfully logged in.");
         return adminLoginResponse;
     }
+
+    @Override
+    public AdminDeleteUserResponse deleteUserAccount(String adminId, String userIdentity) {
+        Optional<Admin> adminOptional = adminRepository.findById(adminId);
+        if(adminOptional.isEmpty()){
+            throw new AdminExceptions("Admin with the given id does not exist.");
+        }
+        Optional<User> userOptional = userRepository.findByUserName(userIdentity);
+        if(userOptional.isEmpty()){
+            throw new AdminExceptions("User with the given id does not exist.");
+        }
+        User user = userOptional.get();
+        userRepository.delete(user);
+        AdminDeleteUserResponse adminDeleteUserResponse = new AdminDeleteUserResponse();
+        adminDeleteUserResponse.setMessage("You have successfully deleted the user with the given userName \"" + user.getUserName());
+        adminDeleteUserResponse.setTimeStamp(LocalDateTime.now().toString());
+        adminDeleteUserResponse.setStatus("200 , SUCCESS");
+
+        return adminDeleteUserResponse;
+    }
+
+    @Override
+    public AdminDisableUserAccountResponse disableUserAccount(String adminId, String userIdentity) {
+        Optional<Admin> adminOpt = adminRepository.findById(adminId);
+        if (adminOpt.isEmpty()) {
+                throw new AdminExceptions("Admin with the given id does not exist.");
+        }
+        Optional<User> optionalUser = userRepository.findByUserName(userIdentity);
+        if (optionalUser.isEmpty()) {
+            throw new AdminExceptions("User not found: " + userIdentity);
+        }
+        User user = optionalUser.get();
+        user.setDisable(true);
+        userRepository.save(user);
+
+        AdminDisableUserAccountResponse adminDisableUserAccountResponse = new AdminDisableUserAccountResponse();
+        adminDisableUserAccountResponse.setMessage("You have successfully disabled user account.");
+        adminDisableUserAccountResponse.setTimeStamp(LocalDateTime.now().toString());
+        adminDisableUserAccountResponse.setStatus("200 , SUCCESS");
+        return  adminDisableUserAccountResponse;
+    }
+
+    @Override
+    public List<User> getAllUsersFirstName(String firstName) {
+            return userRepository.findByFirstName(firstName);
+    }
+
+
 
     private void validateAdmin(AdminRegisterRequest adminRegisterRequest) {
         if(adminRegisterRequest.getPhoneNumber() == null || adminRegisterRequest.getPhoneNumber().trim().isEmpty()){
