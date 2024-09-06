@@ -3,13 +3,13 @@ package com.semicolon.africa.services;
 import com.semicolon.africa.data.model.User;
 import com.semicolon.africa.data.repository.UserRepository;
 import com.semicolon.africa.dto.*;
-import com.semicolon.africa.exceptions.UserRegisterExceptions;
-import lombok.AllArgsConstructor;
+import com.semicolon.africa.exceptions.UserExceptions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.Optional;
 
 @Service
@@ -21,8 +21,8 @@ public class UserServicesImplementation implements UserServices {
     public UserRegisterResponse registerUser(UserRegisterRequest userRegisterRequest) {
         try{
             validateUserRegistration(userRegisterRequest);
-        }catch (UserRegisterExceptions e){
-            throw new UserRegisterExceptions(e.getMessage());
+        }catch (UserExceptions e){
+            throw new UserExceptions(e.getMessage());
         }
         User user = new User();
         user.setFirstName(userRegisterRequest.getFirstName());
@@ -46,55 +46,66 @@ public class UserServicesImplementation implements UserServices {
 
     private void validateUserRegistration(UserRegisterRequest userRegisterRequest) {
         if (userRegisterRequest.getFirstName() == null || userRegisterRequest.getFirstName().trim().isEmpty()) {
-            throw new UserRegisterExceptions("first name is required pls input firstName");
+            throw new UserExceptions("first name is required pls input firstName");
 
         }
         if (userRegisterRequest.getLastName() == null || userRegisterRequest.getLastName().trim().isEmpty()) {
-            throw new UserRegisterExceptions("last name is required pls input lastName");
+            throw new UserExceptions("last name is required pls input lastName");
         }
         if (userRegisterRequest.getEmail() == null || userRegisterRequest.getEmail().trim().isEmpty()) {
-            throw new UserRegisterExceptions("email is required pls input email");
+            throw new UserExceptions("email is required pls input email");
         }
         if (userRegisterRequest.getPhoneNumber() == null || userRegisterRequest.getPhoneNumber().trim().isEmpty()) {
-            throw new UserRegisterExceptions("phone number is required pls input phone number");
+            throw new UserExceptions("phone number is required pls input phone number");
         }
         if (userRegisterRequest.getPassword() == null || userRegisterRequest.getPassword().trim().isEmpty()) {
-            throw new UserRegisterExceptions("password is required pls input password");
+            throw new UserExceptions("password is required pls input password");
         }
         if (userRegisterRequest.getConfirmPassword() == null || userRegisterRequest.getConfirmPassword().trim().isEmpty()) {
-            throw new UserRegisterExceptions("confirm password is required pls input confirm password");
+            throw new UserExceptions("confirm password is required pls input confirm password");
         }
         if (!userRegisterRequest.getPassword().equals(userRegisterRequest.getConfirmPassword())) {
-            throw new UserRegisterExceptions("password does not match confirm password");
+            throw new UserExceptions("password does not match confirm password");
+        }
+        if(!userRegisterRequest.getPhoneNumber().matches("\\d+")){
+            throw new UserExceptions("phone number is not valid pls input a positive Number");
+
         }
         if(userRegisterRequest.getPhoneNumber().length()!=11){
-            throw new UserRegisterExceptions("phone number must be 11 digit");
+            throw new UserExceptions("phone number must be 11 digit");
         }
         Optional<User>userOptional = userRepository.findByUserName(userRegisterRequest.getUserName());
         if(userOptional.isPresent()){
-            throw new UserRegisterExceptions("username already exists");
+            throw new UserExceptions("username already exists");
         }
         Optional<User>duplicateFirstNameAndLastName = userRepository.findByFirstNameAndLastName(userRegisterRequest.getFirstName(), userRegisterRequest.getLastName());
         if(duplicateFirstNameAndLastName.isPresent()){
-            throw new UserRegisterExceptions("first name already exists and last name already exists");
+            throw new UserExceptions("first name already exists and last name already exists");
         }
-
+        Optional<User>duplicateEmail = userRepository.findByEmail(userRegisterRequest.getEmail());
+        if(duplicateEmail.isPresent()){
+            throw new UserExceptions("email already exists");
+        }
+        Optional<User>duplicatePhoneNumber = userRepository.findByPhoneNumber(userRegisterRequest.getPhoneNumber());
+        if(duplicatePhoneNumber.isPresent()){
+            throw new UserExceptions("phone number already exists");
+        }
     }
 
     @Override
     public UserLoginResponse loginUser(UserLoginRequest userLoginRequest) {
         if (userLoginRequest.getUsername() == null || userLoginRequest.getUsername().trim().isEmpty()) {
-            throw new UserRegisterExceptions("Username is empty, please input username");
+            throw new UserExceptions("Username is empty, please input username");
         }
         if (userLoginRequest.getPassword() == null || userLoginRequest.getPassword().trim().isEmpty()) {
-            throw new UserRegisterExceptions("Password is empty, please input password");
+            throw new UserExceptions("Password is empty, please input password");
         }
 
         Optional<User> userOptional = userRepository.findByUserName(userLoginRequest.getUsername());
         if (userOptional.isPresent()) {
             User user = userOptional.get();
             if(user.isDisable()){
-                throw new UserRegisterExceptions("your account is disabled pls inform our customer account");
+                throw new UserExceptions("your account is disabled pls inform our customer account");
             }
             if (passwordEncoder.matches(userLoginRequest.getPassword(), user.getPassword())) {
                 user.setLogin(true);
@@ -105,10 +116,10 @@ public class UserServicesImplementation implements UserServices {
                 response.setLoginStatus(true);
                 return response;
             } else {
-                throw new UserRegisterExceptions("Invalid password");
+                throw new UserExceptions("Invalid password");
             }
         } else {
-            throw new UserRegisterExceptions("Username not found");
+            throw new UserExceptions("Username not found");
         }
     }
 
@@ -124,7 +135,24 @@ public class UserServicesImplementation implements UserServices {
             response.setMessage("Your password has been successfully reset");
             return response;
         }
-        throw new UserRegisterExceptions("user not found");
+        throw new UserExceptions("user not found");
+    }
+
+    @Override
+    public UserStoreResponse storeUserImportantFiles(UserStoreRequest userStoreRequest) {
+        Optional<User>userOptional = userRepository.findByEmail(userStoreRequest.getEmail());
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
+            user.setRequest(userStoreRequest);
+            userRepository.save(user);
+            UserStoreResponse response = new UserStoreResponse();
+            response.setMessage("Your request has been successfully stored");
+            response.setTimestamp(LocalDateTime.now());
+            response.setCreated(LocalDateTime.now());
+            response.setStatus("200 created");
+            return response;
+        }
+            throw new UserExceptions("User not found");
     }
 }
 

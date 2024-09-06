@@ -18,5 +18,10 @@ public class Admin {
     private boolean accountDisable;
     private String phoneNumber;
     private String gender;
+    private String password;
+    private String confirmPassword;
+    private String userName;
+    private String confirmedEmail;
+    private boolean isLogin;
 }
 

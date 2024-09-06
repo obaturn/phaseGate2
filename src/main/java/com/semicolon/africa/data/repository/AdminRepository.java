@@ -3,5 +3,8 @@ package com.semicolon.africa.data.repository;
 import com.semicolon.africa.data.model.Admin;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-public interface AdminRepository extends MongoRepository<Admin, String> {
+import java.util.Optional;
+
+public interface AdminRepository extends MongoRepository<Admin, String>{
+    Optional<Admin> findByUserName(String userName);
 }

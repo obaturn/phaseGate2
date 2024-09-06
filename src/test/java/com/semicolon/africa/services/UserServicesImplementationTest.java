@@ -3,14 +3,13 @@ package com.semicolon.africa.services;
 import com.semicolon.africa.data.model.User;
 import com.semicolon.africa.data.repository.UserRepository;
 import com.semicolon.africa.dto.*;
-import com.semicolon.africa.exceptions.UserRegisterExceptions;
+import com.semicolon.africa.exceptions.UserExceptions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -68,7 +67,7 @@ void setUp(){
         duplicateRequest.setUserName("anotherUser");
         duplicateRequest.setAddress("yaba");
 
-        assertThrows(UserRegisterExceptions.class, () -> {
+        assertThrows(UserExceptions.class, () -> {
             userServices.registerUser(duplicateRequest);
         });
     }
@@ -102,7 +101,7 @@ void setUp(){
         loginRequest.setUsername("nonexistentUser");
         loginRequest.setPassword("wrongPassword");
 
-        assertThrows(UserRegisterExceptions.class, () -> {
+        assertThrows(UserExceptions.class, () -> {
             userServices.loginUser(loginRequest);
         });
     }
@@ -138,9 +137,50 @@ void setUp(){
     UserResetPasswordRequest resetRequest = new UserResetPasswordRequest();
     resetRequest.setEmail("nonExistingUser@gmail.com");
     resetRequest.setPassword("123456");
-    assertThrows(UserRegisterExceptions.class, () -> {
+    assertThrows(UserExceptions.class, () -> {
         userServices.resetPassword(resetRequest);
     });
+    }
+    @Test
+    public  void TestThat_User_Can_Store_Some_important_files() {
+    UserRegisterRequest registerRequest = new UserRegisterRequest();
+    registerRequest.setFirstName("Catalase");
+    registerRequest.setLastName("Doyen");
+    registerRequest.setEmail("catalase@doyen.com");
+    registerRequest.setPassword("123456");
+    registerRequest.setConfirmPassword("123456");
+    registerRequest.setPhoneNumber("08145678901");
+    registerRequest.setUserName("oba@28");
+    registerRequest.setAddress("yaba");
+    userServices.registerUser(registerRequest);
+    UserStoreRequest storeRequest = new UserStoreRequest();
+    storeRequest.setEmail("catalase@doyen.com");
+    storeRequest.setBody("my new files");
+    storeRequest.setTitle("The Header");
+    UserStoreResponse response = userServices.storeUserImportantFiles(storeRequest);
+    assertNotNull(response);
+    assertThat(response.getMessage()).isEqualTo("Your request has been successfully stored");
+    assertNotNull(response.getCreated());
+    assertNotNull(response.getTimestamp());
+    User user = userRepository.findByEmail("catalase@doyen.com").orElse(null);
+    assertNotNull(user);
+    assertNotNull(user.getRequest());
+
+    }
+    @Test
+    public void TestThat_StoreImportantFilesThrowsException_WhenUserNotFound() {
+
+        UserStoreRequest storeRequest = new UserStoreRequest();
+        storeRequest.setEmail("nonexistent@user.com");
+        storeRequest.setTitle("Important Document");
+        storeRequest.setBody("This is an important document.");
+
+
+        UserExceptions exception = assertThrows(UserExceptions.class, () -> {
+            userServices.storeUserImportantFiles(storeRequest);
+        });
+
+        assertEquals("User not found", exception.getMessage());
     }
 
 }

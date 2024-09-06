@@ -1,5 +1,6 @@
 package com.semicolon.africa.data.model;
 
+import com.semicolon.africa.dto.UserStoreRequest;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
@@ -22,5 +23,6 @@ public class User {
     private boolean login;
     private boolean isDisable;
     private String confirmPassword;
+    private UserStoreRequest request;
 
 }
