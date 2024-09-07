@@ -4,7 +4,11 @@ import com.semicolon.africa.data.model.Admin;
 import com.semicolon.africa.data.model.User;
 import com.semicolon.africa.data.repository.AdminRepository;
 import com.semicolon.africa.data.repository.UserRepository;
-import com.semicolon.africa.dto.*;
+import com.semicolon.africa.dto.AdminRequest.AdminLoginRequest;
+import com.semicolon.africa.dto.AdminRequest.AdminRegisterRequest;
+import com.semicolon.africa.dto.AdminRequest.DeleteUserAccountRequest;
+import com.semicolon.africa.dto.AdminRequest.DisableUserAccountRequest;
+import com.semicolon.africa.dto.AdminResponse.*;
 import com.semicolon.africa.exceptions.AdminExceptions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -104,97 +108,147 @@ class AdminServicesImplementationTest {
     }
 
     @Test
-    public void deleteUserAccount() {
+    public void testDeleteUserAccount_Success() {
 
+        String adminEmail = "admin@example.com";
+        String username = "user123";
         Admin admin = new Admin();
-        admin.setUserName("akinOba");
-        admin.setPassword("123456");
-        adminRepository.save(admin);
-
+        admin.setEmail(adminEmail);
         User user = new User();
-        user.setUserName("user123");
-        user.setPassword("89034");
+        user.setUserName(username);
+
+        adminRepository.save(admin);
         userRepository.save(user);
 
-        AdminDeleteUserResponse response = adminServices.deleteUserAccount(admin.getId(), "user123");
+        DeleteUserAccountRequest request = new DeleteUserAccountRequest();
+        request.setAdminEmail(adminEmail);
+        request.setUsername(username);
+
+
+        AdminDeleteUserResponse response = adminServices.deleteUserAccount(request);
+
+
         assertNotNull(response);
-        assertEquals("You have successfully deleted the user with the given userName \"user123", response.getMessage());
-
-        Optional<User> deletedUser = userRepository.findByUserName("user123");
-        assertTrue(deletedUser.isEmpty());
-
+        assertEquals("You have successfully deleted the user with the given userName \"" + user.getUserName(), response.getMessage());
+        assertEquals("200 , SUCCESS", response.getStatus());
+        assertFalse(userRepository.findByUserName(username).isPresent());
     }
+
     @Test
-    public void testDeleteUserAccount_UserNotFound_ThrowsException() {
+    public void testDeleteUserAccount_AdminNotFound() {
+        String adminEmail = "admin@example.com";
+        String username = "user123";
 
-        Admin admin = new Admin();
-        admin.setUserName("adminUser");
-        adminRepository.save(admin);
+        DeleteUserAccountRequest request = new DeleteUserAccountRequest();
+        request.setAdminEmail(adminEmail);
+        request.setUsername(username);
 
 
-        AdminExceptions exception = assertThrows(AdminExceptions.class, () -> {
-            adminServices.deleteUserAccount(admin.getId(), "nonexistentUser");
+        assertThrows(AdminExceptions.class, () -> {
+            adminServices.deleteUserAccount(request);
         });
-
-
-        assertEquals("User with the given identity does not exist.", exception.getMessage());
     }
 
     @Test
-    public void Test_That_My_Admin_Can_DisableUserAccount() {
+    public void testDeleteUserAccount_UserNotFound() {
+
+        String adminEmail = "admin@example.com";
+        String username = "user123";
         Admin admin = new Admin();
-        admin.setUserName("akinOba");
-        admin.setPassword("123456");
+        admin.setEmail(adminEmail);
+
         adminRepository.save(admin);
+
+        DeleteUserAccountRequest request = new DeleteUserAccountRequest();
+        request.setAdminEmail(adminEmail);
+        request.setUsername(username);
+
+
+        assertThrows(AdminExceptions.class, () -> {
+            adminServices.deleteUserAccount(request);
+        });
+    }
+
+    @Test
+    public void testDeleteUserAccount_UserIdentityNull() {
+
+        String adminEmail = "admin@example.com";
+        String username = null;
+        Admin admin = new Admin();
+        admin.setEmail(adminEmail);
+
+        adminRepository.save(admin);
+
+        DeleteUserAccountRequest request = new DeleteUserAccountRequest();
+        request.setAdminEmail(adminEmail);
+        request.setUsername(username);
+
+        assertThrows(AdminExceptions.class, () -> {
+            adminServices.deleteUserAccount(request);
+        });
+    }
+    @Test
+    public void testDisableUserAccount_Success() {
+
+        String adminEmail = "admin@example.com";
+        String username = "user123";
+        Admin admin = new Admin();
+        admin.setEmail(adminEmail);
         User user = new User();
-        user.setUserName("user123");
-        user.setPassword("89034");
-        user.setDisable(true);
-        userRepository.save(user);
-        AdminDisableUserAccountResponse response = adminServices.disableUserAccount(admin.getId(), "user123");
-        System.out.println(response);
-        response.setMessage("You have successfully disabled user account.");
-        response.setTimeStamp(LocalDateTime.now().toString());
+        user.setUserName(username);
 
-        assertThat(response.getMessage()).isEqualTo("You have successfully disabled user account.");
+        adminRepository.save(admin);
+        userRepository.save(user);
+
+        DisableUserAccountRequest request = new DisableUserAccountRequest();
+        request.setEmail(adminEmail);
+        request.setUsername(username);
+
+
+        AdminDisableUserAccountResponse response = adminServices.disableUserAccount(request);
+
+
+        assertNotNull(response);
+        assertEquals("You have successfully disabled user account.", response.getMessage());
+        assertEquals("200 , SUCCESS", response.getStatus());
+        assertTrue(userRepository.findByUserName(username).get().isDisable());
     }
 
     @Test
-    public  void Test_That_if_my_User_is_not_registered_there_will_be_exception_to_be_throw(){
+    public void testDisableUserAccount_AdminNotFound() {
+
+        String adminEmail = "admin@example.com";
+        String username = "user123";
+
+        DisableUserAccountRequest request = new DisableUserAccountRequest();
+        request.setEmail(adminEmail);
+        request.setUsername(username);
+
+
+        assertThrows(AdminExceptions.class, () -> {
+            adminServices.disableUserAccount(request);
+        });
+    }
+
+    @Test
+    public void testDisableUserAccount_UserNotFound() {
+
+        String adminEmail = "admin@example.com";
+        String username = "user123";
         Admin admin = new Admin();
-        admin.setUserName("akinOba");
-        admin.setPassword("123456");
+        admin.setEmail(adminEmail);
+
         adminRepository.save(admin);
 
+        DisableUserAccountRequest request = new DisableUserAccountRequest();
+        request.setEmail(adminEmail);
+        request.setUsername(username);
 
-        String nonExistingUserName = "NonExistingUser";
 
-
-        AdminExceptions exception = assertThrows(AdminExceptions.class, () -> {
-            adminServices.disableUserAccount(admin.getId(), nonExistingUserName);
+        assertThrows(AdminExceptions.class, () -> {
+            adminServices.disableUserAccount(request);
         });
-
-
-        assertEquals("User not found: " + nonExistingUserName, exception.getMessage());
     }
-    @Test
-    public void Test_That_if_Admin_Does_Not_Exist_Exception_Is_Thrown() {
-
-        User user = new User();
-        user.setUserName("user123");
-        user.setPassword("89034");
-        userRepository.save(user);
-
-
-        String nonExistingAdminId = "nonExistingAdminId";
-
-        AdminExceptions exception = assertThrows(AdminExceptions.class, () -> {
-            adminServices.disableUserAccount(nonExistingAdminId, user.getUserName());
-        });
-
-        assertEquals("Admin with the given id does not exist.", exception.getMessage());
-    }
-
 
 
     @Test

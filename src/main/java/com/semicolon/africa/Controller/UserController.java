@@ -1,6 +1,14 @@
 package com.semicolon.africa.Controller;
 
-import com.semicolon.africa.dto.*;
+import com.semicolon.africa.dto.AdminResponse.ApiResponse;
+import com.semicolon.africa.dto.UserRequest.UserLoginRequest;
+import com.semicolon.africa.dto.UserRequest.UserRegisterRequest;
+import com.semicolon.africa.dto.UserRequest.UserResetPasswordRequest;
+import com.semicolon.africa.dto.UserRequest.UserStoreRequest;
+import com.semicolon.africa.dto.UserResponse.UserLoginResponse;
+import com.semicolon.africa.dto.UserResponse.UserRegisterResponse;
+import com.semicolon.africa.dto.UserResponse.UserResetPasswordResponse;
+import com.semicolon.africa.dto.UserResponse.UserStoreResponse;
 import com.semicolon.africa.services.UserServicesImplementation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -35,7 +43,23 @@ public class UserController {
             return new ResponseEntity<>(new ApiResponse(false,e.getMessage()),BAD_GATEWAY);
         }
     }
-
-
+    @PostMapping("/resetPassword")
+    public ResponseEntity<?> resetPassword(@RequestBody UserResetPasswordRequest userResetPasswordRequest) {
+        try{
+            UserResetPasswordResponse response =userService.resetPassword(userResetPasswordRequest);
+            return new ResponseEntity<>(new ApiResponse(true, response),CREATED);
+        }catch(Exception e){
+            return new ResponseEntity<>(new ApiResponse(false,e.getMessage()),BAD_GATEWAY);
+        }
+    }
+    @PostMapping("/storeImportantFiles")
+    public ResponseEntity<?> storeImportantFiles(@RequestBody UserStoreRequest userStoreRequest) {
+        try{
+            UserStoreResponse response = userService.storeUserImportantFiles(userStoreRequest);
+            return new ResponseEntity<>(new ApiResponse(true, response),CREATED);
+        }catch (Exception e){
+            return new ResponseEntity<>(new ApiResponse(false,e.getMessage()),BAD_GATEWAY);
+        }
+    }
 
 }

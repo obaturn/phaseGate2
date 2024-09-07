@@ -1,0 +1,9 @@
+{
+  "success": true,
+  "data": {
+    "message": "you have been registered successfully",
+    "statusMessage": "200 created successfully",
+    "firstName": "myLove",
+    "lastName": "myGirl"
+  }
+}

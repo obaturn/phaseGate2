@@ -4,7 +4,11 @@ import com.semicolon.africa.data.model.Admin;
 import com.semicolon.africa.data.model.User;
 import com.semicolon.africa.data.repository.AdminRepository;
 import com.semicolon.africa.data.repository.UserRepository;
-import com.semicolon.africa.dto.*;
+import com.semicolon.africa.dto.AdminRequest.AdminLoginRequest;
+import com.semicolon.africa.dto.AdminRequest.AdminRegisterRequest;
+import com.semicolon.africa.dto.AdminRequest.DeleteUserAccountRequest;
+import com.semicolon.africa.dto.AdminRequest.DisableUserAccountRequest;
+import com.semicolon.africa.dto.AdminResponse.*;
 import com.semicolon.africa.exceptions.AdminExceptions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -83,15 +87,20 @@ public class AdminServicesImplementation implements AdminServices {
     }
 
     @Override
-    public AdminDeleteUserResponse deleteUserAccount(String adminId, String userIdentity) {
-        Optional<Admin> adminOptional = adminRepository.findById(adminId);
+    public AdminDeleteUserResponse deleteUserAccount(DeleteUserAccountRequest request) {
+       Optional<Admin> adminOptional = adminRepository.findByEmail(request.getAdminEmail());
         if(adminOptional.isEmpty()){
             throw new AdminExceptions("Admin with the given id does not exist.");
         }
-        Optional<User> userOptional = userRepository.findByUserName(userIdentity);
+
+        Optional<User> userOptional = userRepository.findByUserName(request.getUsername());
         if(userOptional.isEmpty()){
             throw new AdminExceptions("User with the given identity does not exist.");
         }
+        if (request.getUsername() == null) {
+            throw new IllegalArgumentException("User identity must not be null");
+        }
+
         User user = userOptional.get();
         userRepository.delete(user);
         AdminDeleteUserResponse adminDeleteUserResponse = new AdminDeleteUserResponse();
@@ -103,14 +112,14 @@ public class AdminServicesImplementation implements AdminServices {
     }
 
     @Override
-    public AdminDisableUserAccountResponse disableUserAccount(String adminId, String userIdentity) {
-        Optional<Admin> adminOpt = adminRepository.findById(adminId);
+    public AdminDisableUserAccountResponse disableUserAccount(DisableUserAccountRequest disableUserAccountRequest) {
+        Optional<Admin> adminOpt = adminRepository.findByEmail(disableUserAccountRequest.getEmail());
         if (adminOpt.isEmpty()) {
                 throw new AdminExceptions("Admin with the given id does not exist.");
         }
-        Optional<User> optionalUser = userRepository.findByUserName(userIdentity);
+        Optional<User> optionalUser = userRepository.findByUserName(disableUserAccountRequest.getUsername());
         if (optionalUser.isEmpty()) {
-            throw new AdminExceptions("User not found: " + userIdentity);
+            throw new AdminExceptions("User not found:");
         }
         User user = optionalUser.get();
         user.setDisable(true);

@@ -2,7 +2,14 @@ package com.semicolon.africa.services;
 
 import com.semicolon.africa.data.model.User;
 import com.semicolon.africa.data.repository.UserRepository;
-import com.semicolon.africa.dto.*;
+import com.semicolon.africa.dto.UserRequest.UserLoginRequest;
+import com.semicolon.africa.dto.UserRequest.UserRegisterRequest;
+import com.semicolon.africa.dto.UserRequest.UserResetPasswordRequest;
+import com.semicolon.africa.dto.UserRequest.UserStoreRequest;
+import com.semicolon.africa.dto.UserResponse.UserLoginResponse;
+import com.semicolon.africa.dto.UserResponse.UserRegisterResponse;
+import com.semicolon.africa.dto.UserResponse.UserResetPasswordResponse;
+import com.semicolon.africa.dto.UserResponse.UserStoreResponse;
 import com.semicolon.africa.exceptions.UserExceptions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -142,31 +149,37 @@ void setUp(){
     });
     }
     @Test
-    public  void TestThat_User_Can_Store_Some_important_files() {
-    UserRegisterRequest registerRequest = new UserRegisterRequest();
-    registerRequest.setFirstName("Catalase");
-    registerRequest.setLastName("Doyen");
-    registerRequest.setEmail("catalase@doyen.com");
-    registerRequest.setPassword("123456");
-    registerRequest.setConfirmPassword("123456");
-    registerRequest.setPhoneNumber("08145678901");
-    registerRequest.setUserName("oba@28");
-    registerRequest.setAddress("yaba");
-    userServices.registerUser(registerRequest);
-    UserStoreRequest storeRequest = new UserStoreRequest();
-    storeRequest.setEmail("catalase@doyen.com");
-    storeRequest.setBody("my new files");
-    storeRequest.setTitle("The Header");
-    UserStoreResponse response = userServices.storeUserImportantFiles(storeRequest);
-    assertNotNull(response);
-    assertThat(response.getMessage()).isEqualTo("Your request has been successfully stored");
-    assertNotNull(response.getCreated());
-    assertNotNull(response.getTimestamp());
-    User user = userRepository.findByEmail("catalase@doyen.com").orElse(null);
-    assertNotNull(user);
-    assertNotNull(user.getRequest());
+    public void TestThat_User_Can_Store_Some_Important_Files() {
 
+        UserRegisterRequest registerRequest = new UserRegisterRequest();
+        registerRequest.setFirstName("Catalase");
+        registerRequest.setLastName("Doyen");
+        registerRequest.setEmail("catal@doyen.com");
+        registerRequest.setPassword("1234");
+        registerRequest.setConfirmPassword("1234");
+        registerRequest.setPhoneNumber("08149678901");
+        registerRequest.setUserName("obar@28");
+        registerRequest.setAddress("yabar");
+
+        userServices.registerUser(registerRequest);
+
+        UserStoreRequest storeRequest = new UserStoreRequest();
+        storeRequest.setEmail("catal@doyen.com");
+        storeRequest.setBody("my new files");
+        storeRequest.setTitle("The Header");
+
+        UserStoreResponse response = userServices.storeUserImportantFiles(storeRequest);
+
+        assertNotNull(response);
+        assertThat(response.getMessage()).isEqualTo("Your request has been successfully stored");
+        assertNotNull(response.getCreated());
+        assertNotNull(response.getTimestamp());
+
+        User storedUser = userRepository.findByEmail("catal@doyen.com").orElse(null);
+        assertNotNull(storedUser);
+        assertNotNull(storedUser.getRequest());
     }
+
     @Test
     public void TestThat_StoreImportantFilesThrowsException_WhenUserNotFound() {
 

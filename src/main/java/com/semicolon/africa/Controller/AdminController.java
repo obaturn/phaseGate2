@@ -1,7 +1,11 @@
 package com.semicolon.africa.Controller;
 
 import com.semicolon.africa.data.model.User;
-import com.semicolon.africa.dto.*;
+import com.semicolon.africa.dto.AdminRequest.AdminLoginRequest;
+import com.semicolon.africa.dto.AdminRequest.AdminRegisterRequest;
+import com.semicolon.africa.dto.AdminRequest.DeleteUserAccountRequest;
+import com.semicolon.africa.dto.AdminRequest.DisableUserAccountRequest;
+import com.semicolon.africa.dto.AdminResponse.*;
 import com.semicolon.africa.services.AdminServicesImplementation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -37,19 +41,20 @@ public class AdminController {
             return new ResponseEntity<>(new ApiResponse(false, e.getMessage()),BAD_REQUEST);
         }
     }
-    @DeleteMapping("/deleteUserAccount")
-    public ResponseEntity<?> deleteUserAccount(@RequestParam String adminId , @RequestParam String userIdentity){
+    @PostMapping("/deleteUserAccount")
+    public ResponseEntity<?> deleteUserAccount(@RequestBody DeleteUserAccountRequest request){
         try{
-           AdminDeleteUserResponse response = adminService.deleteUserAccount(adminId,userIdentity);
+           AdminDeleteUserResponse response = adminService.deleteUserAccount(request);
            return new ResponseEntity<>(new ApiResponse(true, response),CREATED);
-        }catch (Exception e){
-            return new ResponseEntity<>(new ApiResponse(false, e.getMessage()),BAD_REQUEST);
+       }catch (Exception e){
+            return new ResponseEntity<>(new ApiResponse(false,e.getMessage()),BAD_REQUEST);
         }
     }
-    @PatchMapping("/disableUserAccount")
-    public ResponseEntity<?> disableUserAccount(@RequestParam String adminId , @RequestParam String userIdentity){
+
+    @PostMapping("/disableUserAccount")
+    public ResponseEntity<?> disableUserAccount(@RequestBody DisableUserAccountRequest request){
         try{
-           AdminDisableUserAccountResponse response= adminService.disableUserAccount(adminId,userIdentity);
+           AdminDisableUserAccountResponse response= adminService.disableUserAccount(request);
            return new ResponseEntity<>(new ApiResponse(true, response),CREATED);
         }catch (Exception e){
             return new ResponseEntity<>(new ApiResponse(false, e.getMessage()),BAD_REQUEST);

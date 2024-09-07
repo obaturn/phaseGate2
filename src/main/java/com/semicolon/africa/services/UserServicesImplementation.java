@@ -2,7 +2,14 @@ package com.semicolon.africa.services;
 
 import com.semicolon.africa.data.model.User;
 import com.semicolon.africa.data.repository.UserRepository;
-import com.semicolon.africa.dto.*;
+import com.semicolon.africa.dto.UserRequest.UserLoginRequest;
+import com.semicolon.africa.dto.UserRequest.UserRegisterRequest;
+import com.semicolon.africa.dto.UserRequest.UserResetPasswordRequest;
+import com.semicolon.africa.dto.UserRequest.UserStoreRequest;
+import com.semicolon.africa.dto.UserResponse.UserLoginResponse;
+import com.semicolon.africa.dto.UserResponse.UserRegisterResponse;
+import com.semicolon.africa.dto.UserResponse.UserResetPasswordResponse;
+import com.semicolon.africa.dto.UserResponse.UserStoreResponse;
 import com.semicolon.africa.exceptions.UserExceptions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -52,9 +59,10 @@ public class UserServicesImplementation implements UserServices {
         if (userRegisterRequest.getLastName() == null || userRegisterRequest.getLastName().trim().isEmpty()) {
             throw new UserExceptions("last name is required pls input lastName");
         }
-        if (userRegisterRequest.getEmail() == null || userRegisterRequest.getEmail().trim().isEmpty() || !userRegisterRequest.getEmail().matches(".*@")) {
-            throw new UserExceptions("email is required pls input email and must contain annotation of '@'");
+        if (userRegisterRequest.getEmail() == null || userRegisterRequest.getEmail().trim().isEmpty()) {
+            throw new UserExceptions("Email is required and must contain annotation of '@'");
         }
+
         if (userRegisterRequest.getPhoneNumber() == null || userRegisterRequest.getPhoneNumber().trim().isEmpty()) {
             throw new UserExceptions("phone number is required pls input phone number");
         }
@@ -138,21 +146,35 @@ public class UserServicesImplementation implements UserServices {
         throw new UserExceptions("user not found");
     }
 
+
     @Override
     public UserStoreResponse storeUserImportantFiles(UserStoreRequest userStoreRequest) {
-        Optional<User>userOptional = userRepository.findByEmail(userStoreRequest.getEmail());
+
+        Optional<User> userOptional = userRepository.findByEmail(userStoreRequest.getEmail().toLowerCase());
+
         if (userOptional.isPresent()) {
+
             User user = userOptional.get();
+            user.setTittle(userStoreRequest.getTitle());
+            user.setBody(userStoreRequest.getBody());
             user.setRequest(userStoreRequest);
+
             userRepository.save(user);
+
             UserStoreResponse response = new UserStoreResponse();
             response.setMessage("Your request has been successfully stored");
             response.setTimestamp(LocalDateTime.now());
             response.setCreated(LocalDateTime.now());
-            response.setStatus("200 created");
+            response.setStatus("200 Created");
+
             return response;
-        }
+        } else {
+
+            System.out.println("User not found for email: " + userStoreRequest.getEmail());
             throw new UserExceptions("User not found");
+        }
     }
+
+
 }
 

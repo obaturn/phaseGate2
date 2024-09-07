@@ -1,4 +1,4 @@
-package com.semicolon.africa.dto;
+package com.semicolon.africa.dto.AdminResponse;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

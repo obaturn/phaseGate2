@@ -1,3 +1,445 @@
+POST http://localhost:8080/api/v1/Admin/deleteUserAccount
+Content-Type: application/json
+Content-Length: 71
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "username": "obar@28",
+  "adminEmail": "66dc66464de52c76ac59f487"
+}
+
+<> 2024-09-07T215619.405.json
+
+###
+
+DELETE http://localhost:8080/api/v1/Admin/deleteUserAccount?adminId=Np_ot12t&userIdentity=qYCAUmwK
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+<> 2024-09-07T211832.500.json
+
+###
+
+PATCH http://localhost:8080/api/v1/Admin/disableUserAccount?adminId=iCYC4xnV&userIdentity=zteYNy6W
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+<> 2024-09-07T203020.500.json
+
+###
+
+DELETE http://localhost:8080/api/v1/Admin/deleteUserAccount?adminId=my administatrator_iduserIdentity=my_userid
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+<> 2024-09-07T202418.500.json
+
+###
+
+POST http://localhost:8080/api/v1/User/storeImportantFiles
+Content-Type: application/json
+Content-Length: 84
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "title": "document",
+  "body": "love of my life",
+  "email": "mylove@girl.com"
+}
+
+<> 2024-09-07T201131.201.json
+
+###
+
+POST http://localhost:8080/api/v1/User/registerUser
+Content-Type: application/json
+Content-Length: 236
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "firstName": "myLove",
+  "lastName": "myGirl",
+  "email": "mylove@girl.com",
+  "password": "123056",
+  "confirmPassword": "123056",
+  "phoneNumber": "09012678934",
+  "address": "osogbo",
+  "userName": "akin567",
+  "gender": "male"
+}
+
+<> 2024-09-07T201020.201.json
+
+###
+
+POST http://localhost:8080/api/v1/User/storeImportantFiles
+Content-Type: application/json
+Content-Length: 67
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "title": "hi",
+  "body": "hello",
+  "email": "dayo@oluwa.com"
+}
+
+<> 2024-09-07T193211.502.json
+
+###
+
+POST http://localhost:8080/api/v1/User/registerUser
+Content-Type: application/json
+Content-Length: 240
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "firstName": "praise",
+  "lastName": "adedayo",
+  "email": "dayo@oluwa.com",
+  "password": "45627",
+  "confirmPassword": "45627",
+  "phoneNumber": "09145978901",
+  "address": "sabo",
+  "userName": "obaturning@28",
+  "gender": "female"
+}
+
+<> 2024-09-07T193117.201.json
+
+###
+
+POST http://localhost:8080/api/v1/User/storeImportantFiles
+Content-Type: application/json
+Content-Length: 108
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "title": "my old document",
+  "body": "here i am saying i am a real madrid fans",
+  "email": "ak@yt28"
+}
+
+<> 2024-09-07T192910.502.json
+
+###
+
+POST http://localhost:8080/api/v1/User/storeImportantFiles
+Content-Type: application/json
+Content-Length: 108
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "title": "my old document",
+  "body": "here i am saying i am a real madrid fans",
+  "email": "ak@yt28"
+}
+
+<> 2024-09-07T192901.502.json
+
+###
+
+POST http://localhost:8080/api/v1/User/storeImportantFiles
+Content-Type: application/json
+Content-Length: 108
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "title": "my old document",
+  "body": "here i am saying i am a real madrid fans",
+  "email": "ak@yt28"
+}
+
+<> 2024-09-07T192812.502.json
+
+###
+
+POST http://localhost:8080/api/v1/User/storeImportantFiles
+Content-Type: application/json
+Content-Length: 103
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "title": "my new document",
+  "body": "here i am saying i am a madrid fans",
+  "email": "ak@yt28"
+}
+
+<> 2024-09-07T192440.201.json
+
+###
+
+POST http://localhost:8080/api/v1/User/registerUser
+Content-Type: application/json
+Content-Length: 225
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "firstName": "afzeez",
+  "lastName": "olamide",
+  "email": "ak@yt28",
+  "password": "78901",
+  "confirmPassword": "78901",
+  "phoneNumber": "09125634789",
+  "address": "osun",
+  "userName": "obaturn",
+  "gender": "male"
+}
+
+<> 2024-09-07T192407.201.json
+
+###
+
+POST http://localhost:8080/api/v1/User/storeImportantFiles
+Content-Type: application/json
+Content-Length: 108
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "title": "my new document",
+  "body": "here i am saying i am a madrid fans",
+  "email": "toluak@yer28"
+}
+
+<> 2024-09-07T192141.502.json
+
+###
+
+POST http://localhost:8080/api/v1/User/storeImportantFiles
+Content-Type: application/json
+Content-Length: 108
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "title": "my new document",
+  "body": "here i am saying i am a madrid fans",
+  "email": "toluak@yer28"
+}
+
+<> 2024-09-07T191349.502.json
+
+###
+
+POST http://localhost:8080/api/v1/User/storeImportantFiles
+Content-Type: application/json
+Content-Length: 108
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "title": "my new document",
+  "body": "here i am saying i am a madrid fans",
+  "email": "toluak@yer28"
+}
+
+<> 2024-09-07T191223.502.json
+
+###
+
+POST http://localhost:8080/api/v1/User/storeImportantFiles
+Content-Type: application/json
+Content-Length: 81
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "Title": "Sample Title",
+  "Body": "Sample Body",
+  "Email": "toluak@yer28"
+}
+
+<> 2024-09-07T185414.502.json
+
+###
+
+POST http://localhost:8080/api/v1/User/storeImportantFiles
+Content-Type: application/json
+Content-Length: 81
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "Title": "Sample Title",
+  "Body": "Sample Body",
+  "Email": "toluak@yer28"
+}
+
+<> 2024-09-07T185019.502.json
+
+###
+
+POST http://localhost:8080/api/v1/User/storeImportantFiles
+Content-Type: application/json
+Content-Length: 81
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "Title": "Sample Title",
+  "Body": "Sample Body",
+  "Email": "toluak@yer28"
+}
+
+<> 2024-09-07T184604.502.json
+
+###
+
+POST http://localhost:8080/api/v1/User/storeImportantFiles
+Content-Type: application/json
+Content-Length: 81
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "Title": "Sample Title",
+  "Body": "Sample Body",
+  "Email": "toluak@yer28"
+}
+
+<> 2024-09-07T181836.502.json
+
+###
+
+POST http://localhost:8080/api/v1/User/storeImportantFiles
+Content-Type: application/json
+Content-Length: 81
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "Title": "Sample Title",
+  "Body": "Sample Body",
+  "Email": "toluak@yer28"
+}
+
+<> 2024-09-07T181349.502.json
+
+###
+
+POST http://localhost:8080/api/v1/User/storeImportantFiles
+Content-Type: application/json
+Content-Length: 81
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "Title": "Sample Title",
+  "Body": "Sample Body",
+  "Email": "toluak@yer28"
+}
+
+<> 2024-09-07T181231.502.json
+
+###
+
+POST http://localhost:8080/api/v1/User/resetPassword
+Content-Type: application/json
+Content-Length: 75
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "firstName": "bose",
+  "password": "124",
+  "email":  "toluak@yer28"
+
+}
+
+<> 2024-09-07T175251.201.json
+
+###
+
+POST http://localhost:8080/api/v1/User/resetPassword
+Content-Type: application/json
+Content-Length: 76
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "firstName": "bose",
+  "password": "1234",
+  "email":  "toluak@yer28"
+
+}
+
+<> 2024-09-07T173549.201.json
+
+###
+
+POST http://localhost:8080/api/v1/User/resetPassword
+Content-Type: application/json
+Content-Length: 76
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "firstName": "bose",
+  "password": "1234",
+  "email":  "toluak@yer28"
+
+}
+
+<> 2024-09-07T173446.201.json
+
+###
+
+POST http://localhost:8080/api/v1/User/resetPassword
+Content-Type: application/json
+Content-Length: 78
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "firstName": "bose",
+  "password": "1234",
+  "email":  "toluak@yer28"
+
+}
+
+<> 2024-09-07T173004.404.json
+
+###
+
 POST http://localhost:8080/api/v1/User/loginUser
 Content-Type: application/json
 Content-Length: 51

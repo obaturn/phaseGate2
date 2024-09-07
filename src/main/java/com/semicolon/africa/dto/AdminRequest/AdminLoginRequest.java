@@ -1,4 +1,4 @@
-package com.semicolon.africa.dto;
+package com.semicolon.africa.dto.AdminRequest;
 
 import lombok.Data;
 

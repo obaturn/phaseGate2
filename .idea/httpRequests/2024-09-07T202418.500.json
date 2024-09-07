@@ -1,0 +1,6 @@
+{
+  "timestamp": "2024-09-07T19:24:18.277+00:00",
+  "status": 500,
+  "error": "Internal Server Error",
+  "path": "/api/v1/Admin/deleteUserAccount"
+}
