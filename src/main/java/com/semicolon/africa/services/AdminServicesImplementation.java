@@ -139,6 +139,37 @@ public class AdminServicesImplementation implements AdminServices {
         return userRepository.findAll();
     }
 
+    @Override
+    public AdminDeleteUserByIdResponse deleteUserById(String adminId, String userIdentity) {
+        Optional<Admin> adminOptional = adminRepository.findById(adminId);
+        if (adminOptional.isEmpty()) {
+            throw new AdminExceptions("Admin with the given id does not exist.");
+        }
+        Optional<User> userOptional = userRepository.findById(userIdentity);
+        if (userOptional.isEmpty()) {
+            throw new AdminExceptions("User not found: " + userIdentity);
+        }
+        User user = userOptional.get();
+        userRepository.delete(user);
+        AdminDeleteUserByIdResponse adminDeleteUserByIdResponse = new AdminDeleteUserByIdResponse();
+        adminDeleteUserByIdResponse.setMessage("You have successfully deleted user with id \"" + user.getId() + "\"");
+        adminDeleteUserByIdResponse.setTimestamp(LocalDateTime.now());
+        return adminDeleteUserByIdResponse;
+    }
+
+    @Override
+    public AdminFindUserByIdResponse getUserById(String userId) {
+        Optional<User> userOptional = userRepository.findById(userId);
+        if (userOptional.isEmpty()) {
+            throw new AdminExceptions("User not found: " + userId);
+        }
+        AdminFindUserByIdResponse response = new AdminFindUserByIdResponse();
+        response.setMessage("User with id \"" + userId);
+        response.setTimeStamp(LocalDateTime.now());
+        response.setStatus("200 , SUCCESS");
+        return response;
+    }
+
 
     private void validateAdmin(AdminRegisterRequest adminRegisterRequest) {
         if(adminRegisterRequest.getPhoneNumber() == null || adminRegisterRequest.getPhoneNumber().trim().isEmpty()){

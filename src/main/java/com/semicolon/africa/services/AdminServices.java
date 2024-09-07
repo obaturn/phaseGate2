@@ -13,6 +13,8 @@ public interface AdminServices {
     List<User> getAllUsersFirstName(String firstName);
     List<User> getAllUsersLastName(String lastName);
     List<User> gatAllUsers();
+    AdminDeleteUserByIdResponse deleteUserById(String adminId, String userIdentity);
+    AdminFindUserByIdResponse getUserById(String userId);
     }
 
 

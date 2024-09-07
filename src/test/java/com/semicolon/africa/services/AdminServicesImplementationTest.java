@@ -198,7 +198,33 @@ class AdminServicesImplementationTest {
 
 
     @Test
-   public void Test_That_I_Can_Get_All_Users_FirstName() {
+   public void Test_That_I_Can_Get_A_User_FirstName() {
+        User user = new User();
+        user.setUserName("user123");
+        user.setPassword("89034");
+        user.setEmail("akinOba@gmail.com");
+        user.setFirstName("akin");
+        user.setLastName("oba");
+        userRepository.save(user);
+
+        assertEquals(1, userRepository.findByFirstName(user.getFirstName()).size());
+    }
+
+    @Test
+    public void Test_That_Get_A_User_LastName() {
+        User user = new User();
+        user.setUserName("user123");
+        user.setPassword("89034");
+        user.setEmail("akinOba@gmail.com");
+        user.setFirstName("akin");
+        user.setLastName("oba");
+        userRepository.save(user);
+        assertEquals(1, userRepository.findByLastName(user.getLastName()).size());
+    }
+
+    @Test
+   public void Test_I_Can_get_All_Users() {
+
         User user = new User();
         user.setUserName("user123");
         user.setPassword("89034");
@@ -210,18 +236,49 @@ class AdminServicesImplementationTest {
         User user1 = new User();
         user1.setUserName("user1234");
         user1.setPassword("890345");
-        user1.setEmail("akinObayemi@gmail.com");
+        user1.setEmail("akinObanla@gmail.com");
         user1.setFirstName("akinyemi");
-        user1.setLastName("obayemi");
+        user1.setLastName("obanla");
         userRepository.save(user1);
-        assertEquals(2, userRepository.findByFirstName(user.getFirstName()).size());
+
+        User user2 = new User();
+        user2.setUserName("user123456");
+        user2.setPassword("8903450");
+        user2.setEmail("akinemi@gmail.com");
+        user2.setFirstName("akinyemiola");
+        user2.setLastName("obanlayemi");
+        userRepository.save(user2);
+
+        assertEquals(3, userRepository.findAll().size());
+    }
+    @Test
+    public void Test_That_Admin_Can_Delete_User_By_Id() {
+
+        Admin admin = new Admin();
+        admin.setUserName("adminUser");
+        admin.setPassword("adminPass");
+        adminRepository.save(admin);
+
+        User user = new User();
+        user.setUserName("user123");
+        user.setPassword("userPass");
+        userRepository.save(user);
+        AdminDeleteUserByIdResponse response = adminServices.deleteUserById(admin.getId(), user.getId());
+        assertEquals("You have successfully deleted user with id \"" + user.getId() + "\"", response.getMessage());
+        Optional<User> deletedUser = userRepository.findById(user.getId());
+        assertTrue(deletedUser.isEmpty());
+    }
+    @Test
+    public void Test_That_I_Can_Find_User_By_Id() {
+        User user = new User();
+        user.setUserName("user123");
+        user.setPassword("userPass");
+        userRepository.save(user);
+        AdminFindUserByIdResponse response = adminServices.getUserById(user.getId());
+        assertEquals("User with id \"" + user.getId(), response.getMessage());
+        assertEquals("200 , SUCCESS", response.getStatus());
+        assertNotNull(response);
     }
 
-    @Test
-    void getAllUsersLastName() {
-    }
 
-    @Test
-    void gatAllUsers() {
-    }
 }
