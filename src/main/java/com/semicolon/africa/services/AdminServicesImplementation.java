@@ -135,7 +135,7 @@ public class AdminServicesImplementation implements AdminServices {
     }
 
     @Override
-    public List<User> gatAllUsers() {
+    public List<User> getAllUsers() {
         return userRepository.findAll();
     }
 

@@ -12,7 +12,7 @@ public interface AdminServices {
     AdminDisableUserAccountResponse disableUserAccount(String adminId, String userIdentity);
     List<User> getAllUsersFirstName(String firstName);
     List<User> getAllUsersLastName(String lastName);
-    List<User> gatAllUsers();
+    List<User> getAllUsers();
     AdminDeleteUserByIdResponse deleteUserById(String adminId, String userIdentity);
     AdminFindUserByIdResponse getUserById(String userId);
     }
