@@ -12,4 +12,5 @@ public interface UserRepository extends MongoRepository<User,String> {
     Optional<User> findByFirstNameAndLastName(String firstName, String lastName);
     Optional<User> findByPhoneNumber(String phoneNumber);
     List<User> findByFirstName(String firstName);
+    List<User> findByLastName(String lastName);
 }

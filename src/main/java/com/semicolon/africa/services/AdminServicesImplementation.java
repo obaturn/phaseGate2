@@ -40,7 +40,9 @@ public class AdminServicesImplementation implements AdminServices {
         admin.setPassword(passwordEncoder.encode(adminRegisterRequest.getPassword()));
         admin.setConfirmPassword(passwordEncoder.encode(adminRegisterRequest.getConfirmPassword()));
         admin.setConfirmedEmail(adminRegisterRequest.getConfirmedEmail());
+        admin.setUserName(adminRegisterRequest.getUserName());
         adminRepository.save(admin);
+        System.out.println("Admin saved: " + admin);
         AdminRegisterResponse adminRegisterResponse = new AdminRegisterResponse();
         adminRegisterResponse.setMessage("you have successfully registered as an admin");
         return adminRegisterResponse;
@@ -65,6 +67,8 @@ public class AdminServicesImplementation implements AdminServices {
         }
 
         Admin admin = adminOptional.get();
+        admin.setUserName(adminLoginRequest.getUserName());
+        admin.setPassword(passwordEncoder.encode(adminLoginRequest.getPassword()));
 
         if (!passwordEncoder.matches(adminLoginRequest.getPassword(), admin.getPassword())) {
 
@@ -86,7 +90,7 @@ public class AdminServicesImplementation implements AdminServices {
         }
         Optional<User> userOptional = userRepository.findByUserName(userIdentity);
         if(userOptional.isEmpty()){
-            throw new AdminExceptions("User with the given id does not exist.");
+            throw new AdminExceptions("User with the given identity does not exist.");
         }
         User user = userOptional.get();
         userRepository.delete(user);
@@ -121,14 +125,24 @@ public class AdminServicesImplementation implements AdminServices {
 
     @Override
     public List<User> getAllUsersFirstName(String firstName) {
+        System.out.println("firstName: " + firstName);
             return userRepository.findByFirstName(firstName);
     }
 
+    @Override
+    public List<User> getAllUsersLastName(String lastName) {
+        return userRepository.findByLastName(lastName);
+    }
+
+    @Override
+    public List<User> gatAllUsers() {
+        return userRepository.findAll();
+    }
 
 
     private void validateAdmin(AdminRegisterRequest adminRegisterRequest) {
         if(adminRegisterRequest.getPhoneNumber() == null || adminRegisterRequest.getPhoneNumber().trim().isEmpty()){
-              throw new AdminExceptions("phoneNumber cannot be empty pls input phone number");
+            throw new AdminExceptions("phoneNumber cannot be empty pls input phone number");
         }
         if (adminRegisterRequest.getEmail() == null || adminRegisterRequest.getEmail().trim().isEmpty() || !adminRegisterRequest.getEmail().matches(".*@.*")) {
             throw new AdminExceptions("Email cannot be empty and must contain '@'");
@@ -143,29 +157,40 @@ public class AdminServicesImplementation implements AdminServices {
         if(adminRegisterRequest.getPassword() == null || adminRegisterRequest.getPassword().trim().isEmpty()){
             throw new AdminExceptions("password cannot be empty pls input password");
         }
-        if(!passwordEncoder.matches(adminRegisterRequest.getPassword(), adminRegisterRequest.getPassword())){
-            throw new AdminExceptions("password does not match password");
+        if(!adminRegisterRequest.getPassword().equals(adminRegisterRequest.getConfirmPassword())){
+            throw new AdminExceptions("password does not match confirmPassword");
         }
         if(adminRegisterRequest.getPhoneNumber().length() != 11){
-            throw new AdminExceptions("phoneNumber  must be exactly 11 digit");
+            throw new AdminExceptions("phoneNumber must be exactly 11 digits");
         }
-        if(adminRegisterRequest.getConfirmPassword() == null || adminRegisterRequest.getConfirmPassword().trim().isEmpty()){
-            throw new AdminExceptions("confirmPassword cannot be empty pls input confirm password");
-        }
+
         if(adminRegisterRequest.getGender() == null || adminRegisterRequest.getGender().trim().isEmpty()){
             throw new AdminExceptions("gender cannot be empty pls input gender");
         }
         if(adminRegisterRequest.getHomeAddress() == null || adminRegisterRequest.getHomeAddress().trim().isEmpty()){
             throw new AdminExceptions("homeAddress cannot be empty pls input home address");
         }
-        if(adminRegisterRequest.getUserName()==null || adminRegisterRequest.getUserName().trim().isEmpty()){
+        if(adminRegisterRequest.getUserName() == null || adminRegisterRequest.getUserName().trim().isEmpty()){
             throw new AdminExceptions("userName cannot be empty pls input user name");
         }
         if(adminRegisterRequest.getConfirmedEmail() == null || adminRegisterRequest.getConfirmedEmail().trim().isEmpty() || !adminRegisterRequest.getConfirmedEmail().matches(".*@.*")){
             throw new AdminExceptions("confirmedEmail cannot be empty pls input confirmed email and must contain @ annotation");
         }
-        if(!adminRegisterRequest.getConfirmedEmail() .equals(adminRegisterRequest.getEmail())){
+        if(!adminRegisterRequest.getConfirmedEmail().equals(adminRegisterRequest.getEmail())){
             throw new AdminExceptions("confirmed email does not match email pls input the correct own");
         }
+        Optional<Admin> adminOptional = adminRepository.findByUserName(adminRegisterRequest.getUserName());
+        if(adminOptional.isPresent()){
+            throw new AdminExceptions("Username already exists.");
+        }
+        Optional<Admin> adminOptional2 = adminRepository.findByPhoneNumber(adminRegisterRequest.getPhoneNumber());
+        if(adminOptional2.isPresent()){
+            throw new AdminExceptions("Phone number already exists.");
+        }
+        Optional<Admin> adminOptional3 = adminRepository.findByEmail(adminRegisterRequest.getEmail());
+        if(adminOptional3.isPresent()){
+            throw new AdminExceptions("Email already exists.");
+        }
     }
+
 }

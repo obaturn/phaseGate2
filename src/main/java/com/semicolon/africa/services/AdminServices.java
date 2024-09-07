@@ -11,6 +11,8 @@ public interface AdminServices {
     AdminDeleteUserResponse deleteUserAccount(String adminId, String userIdentity);
     AdminDisableUserAccountResponse disableUserAccount(String adminId, String userIdentity);
     List<User> getAllUsersFirstName(String firstName);
+    List<User> getAllUsersLastName(String lastName);
+    List<User> gatAllUsers();
     }
 
 

@@ -5,13 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4e2ad661-3416-4460-96ff-e025f8851d25" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/dto/AdminDeleteUserResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/dto/AdminDisableUserAccountResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/semicolon/africa/services/AdminServicesImplementationTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/data/repository/AdminRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/data/repository/AdminRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/data/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/data/repository/UserRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/services/AdminServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/services/AdminServices.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/services/AdminServicesImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/services/AdminServicesImplementation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/semicolon/africa/services/AdminServicesImplementationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/semicolon/africa/services/AdminServicesImplementationTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,8 +22,8 @@
       <list>
         <option value="Enum" />
         <option value="Interface" />
-        <option value="JUnit5 Test Class" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -40,49 +39,57 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;JUnit.UserServicesImplementationTest.TestThat_DuplicateFirstNameAndLastName_ThrowsException.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServicesImplementationTest.TestThat_I_registerUser.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServicesImplementationTest.TestThat_InvalidLoginThrowsException.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServicesImplementationTest.TestThat_StoreImportantFilesThrowsException_WhenUserNotFound.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServicesImplementationTest.TestThat_UserCanLogin.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServicesImplementationTest.TestThat_UserCanResetPassword.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServicesImplementationTest.TestThat_User_Can_Store_Some_important_files.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServicesImplementationTest.TestThat_my_restPassword_Method_could_throw_exception_if_no_User.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServicesImplementationTest.test_That_I_registerUser.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.PasswordManagement [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.PasswordManagement [compile].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.PasswordManagement [install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.PasswordManagement [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.PasswordManagement [org.apache.maven.plugins:maven-install-plugin:3.1.1:install-file].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.PasswordManagement [org.apache.maven.plugins:maven-install-plugin:3.1.1:install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.PasswordManagement [package].executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Spring Boot.Main.executor&quot;: &quot;Run&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_directory_selection&quot;: &quot;C:/Users/Vera/Desktop/java/PasswordManagement/src/test/java/com/semicolon/africa/services&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Vera/.jdks/corretto-17.0.12&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JUnit.AdminServicesImplementationTest.Test_That_I_Can_RegisterAdmin.executor": "Run",
+    "JUnit.AdminServicesImplementationTest.Test_That_My_Admin_Can_DisableUserAccount.executor": "Run",
+    "JUnit.AdminServicesImplementationTest.Test_That_My_Admin_Can_login_To_Their_Account.executor": "Run",
+    "JUnit.AdminServicesImplementationTest.Test_That_if_Admin_Does_Not_Exist_Exception_Is_Thrown.executor": "Run",
+    "JUnit.AdminServicesImplementationTest.Test_That_if_my_User_is_not_registered_there_will_be_exception_to_be_throw.executor": "Run",
+    "JUnit.AdminServicesImplementationTest.deleteUserAccount.executor": "Run",
+    "JUnit.AdminServicesImplementationTest.testDeleteUserAccount_UserNotFound_ThrowsException.executor": "Run",
+    "JUnit.AdminServicesImplementationTest.testRegisterAdmin_EmailMismatch_ThrowsException.executor": "Run",
+    "JUnit.UserServicesImplementationTest.TestThat_DuplicateFirstNameAndLastName_ThrowsException.executor": "Run",
+    "JUnit.UserServicesImplementationTest.TestThat_I_registerUser.executor": "Run",
+    "JUnit.UserServicesImplementationTest.TestThat_InvalidLoginThrowsException.executor": "Run",
+    "JUnit.UserServicesImplementationTest.TestThat_StoreImportantFilesThrowsException_WhenUserNotFound.executor": "Run",
+    "JUnit.UserServicesImplementationTest.TestThat_UserCanLogin.executor": "Run",
+    "JUnit.UserServicesImplementationTest.TestThat_UserCanResetPassword.executor": "Run",
+    "JUnit.UserServicesImplementationTest.TestThat_User_Can_Store_Some_important_files.executor": "Run",
+    "JUnit.UserServicesImplementationTest.TestThat_my_restPassword_Method_could_throw_exception_if_no_User.executor": "Run",
+    "JUnit.UserServicesImplementationTest.test_That_I_registerUser.executor": "Run",
+    "Maven.PasswordManagement [clean].executor": "Run",
+    "Maven.PasswordManagement [compile].executor": "Run",
+    "Maven.PasswordManagement [install].executor": "Run",
+    "Maven.PasswordManagement [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor": "Run",
+    "Maven.PasswordManagement [org.apache.maven.plugins:maven-install-plugin:3.1.1:install-file].executor": "Run",
+    "Maven.PasswordManagement [org.apache.maven.plugins:maven-install-plugin:3.1.1:install].executor": "Run",
+    "Maven.PasswordManagement [package].executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.Main.executor": "Run",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_directory_selection": "C:/Users/Vera/Desktop/java/PasswordManagement/src/test/java/com/semicolon/africa/services",
+    "last_opened_file_path": "C:/Users/Vera/.jdks/corretto-17.0.12",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Vera\Desktop\java\PasswordManagement\src\main\java\com\semicolon\africa" />
@@ -100,8 +107,8 @@
       <command value="mvn install" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.UserServicesImplementationTest.TestThat_StoreImportantFilesThrowsException_WhenUserNotFound">
-    <configuration name="UserServicesImplementationTest.TestThat_InvalidLoginThrowsException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.AdminServicesImplementationTest.Test_That_if_Admin_Does_Not_Exist_Exception_Is_Thrown">
+    <configuration name="AdminServicesImplementationTest.Test_That_My_Admin_Can_DisableUserAccount" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="PasswordManagement" />
       <extension name="coverage">
         <pattern>
@@ -110,14 +117,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.semicolon.africa.services" />
-      <option name="MAIN_CLASS_NAME" value="com.semicolon.africa.services.UserServicesImplementationTest" />
-      <option name="METHOD_NAME" value="TestThat_InvalidLoginThrowsException" />
+      <option name="MAIN_CLASS_NAME" value="com.semicolon.africa.services.AdminServicesImplementationTest" />
+      <option name="METHOD_NAME" value="Test_That_My_Admin_Can_DisableUserAccount" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserServicesImplementationTest.TestThat_StoreImportantFilesThrowsException_WhenUserNotFound" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AdminServicesImplementationTest.Test_That_if_Admin_Does_Not_Exist_Exception_Is_Thrown" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="PasswordManagement" />
       <extension name="coverage">
         <pattern>
@@ -126,14 +133,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.semicolon.africa.services" />
-      <option name="MAIN_CLASS_NAME" value="com.semicolon.africa.services.UserServicesImplementationTest" />
-      <option name="METHOD_NAME" value="TestThat_StoreImportantFilesThrowsException_WhenUserNotFound" />
+      <option name="MAIN_CLASS_NAME" value="com.semicolon.africa.services.AdminServicesImplementationTest" />
+      <option name="METHOD_NAME" value="Test_That_if_Admin_Does_Not_Exist_Exception_Is_Thrown" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserServicesImplementationTest.TestThat_UserCanResetPassword" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AdminServicesImplementationTest.Test_That_if_my_User_is_not_registered_there_will_be_exception_to_be_throw" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="PasswordManagement" />
       <extension name="coverage">
         <pattern>
@@ -142,14 +149,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.semicolon.africa.services" />
-      <option name="MAIN_CLASS_NAME" value="com.semicolon.africa.services.UserServicesImplementationTest" />
-      <option name="METHOD_NAME" value="TestThat_UserCanResetPassword" />
+      <option name="MAIN_CLASS_NAME" value="com.semicolon.africa.services.AdminServicesImplementationTest" />
+      <option name="METHOD_NAME" value="Test_That_if_my_User_is_not_registered_there_will_be_exception_to_be_throw" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserServicesImplementationTest.TestThat_User_Can_Store_Some_important_files" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AdminServicesImplementationTest.deleteUserAccount" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="PasswordManagement" />
       <extension name="coverage">
         <pattern>
@@ -158,14 +165,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.semicolon.africa.services" />
-      <option name="MAIN_CLASS_NAME" value="com.semicolon.africa.services.UserServicesImplementationTest" />
-      <option name="METHOD_NAME" value="TestThat_User_Can_Store_Some_important_files" />
+      <option name="MAIN_CLASS_NAME" value="com.semicolon.africa.services.AdminServicesImplementationTest" />
+      <option name="METHOD_NAME" value="deleteUserAccount" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserServicesImplementationTest.TestThat_my_restPassword_Method_could_throw_exception_if_no_User" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AdminServicesImplementationTest.testDeleteUserAccount_UserNotFound_ThrowsException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="PasswordManagement" />
       <extension name="coverage">
         <pattern>
@@ -174,8 +181,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.semicolon.africa.services" />
-      <option name="MAIN_CLASS_NAME" value="com.semicolon.africa.services.UserServicesImplementationTest" />
-      <option name="METHOD_NAME" value="TestThat_my_restPassword_Method_could_throw_exception_if_no_User" />
+      <option name="MAIN_CLASS_NAME" value="com.semicolon.africa.services.AdminServicesImplementationTest" />
+      <option name="METHOD_NAME" value="testDeleteUserAccount_UserNotFound_ThrowsException" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -183,11 +190,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.UserServicesImplementationTest.TestThat_StoreImportantFilesThrowsException_WhenUserNotFound" />
-        <item itemvalue="JUnit.UserServicesImplementationTest.TestThat_User_Can_Store_Some_important_files" />
-        <item itemvalue="JUnit.UserServicesImplementationTest.TestThat_my_restPassword_Method_could_throw_exception_if_no_User" />
-        <item itemvalue="JUnit.UserServicesImplementationTest.TestThat_UserCanResetPassword" />
-        <item itemvalue="JUnit.UserServicesImplementationTest.TestThat_InvalidLoginThrowsException" />
+        <item itemvalue="JUnit.AdminServicesImplementationTest.Test_That_if_Admin_Does_Not_Exist_Exception_Is_Thrown" />
+        <item itemvalue="JUnit.AdminServicesImplementationTest.Test_That_if_my_User_is_not_registered_there_will_be_exception_to_be_throw" />
+        <item itemvalue="JUnit.AdminServicesImplementationTest.Test_That_My_Admin_Can_DisableUserAccount" />
+        <item itemvalue="JUnit.AdminServicesImplementationTest.testDeleteUserAccount_UserNotFound_ThrowsException" />
+        <item itemvalue="JUnit.AdminServicesImplementationTest.deleteUserAccount" />
       </list>
     </recent_temporary>
   </component>
@@ -245,7 +252,8 @@
       <workItem from="1725604325444" duration="7665000" />
       <workItem from="1725627734786" duration="2852000" />
       <workItem from="1725638934112" duration="13999000" />
-      <workItem from="1725661655078" duration="532000" />
+      <workItem from="1725661655078" duration="2203000" />
+      <workItem from="1725692657667" duration="13090000" />
     </task>
     <servers />
   </component>
