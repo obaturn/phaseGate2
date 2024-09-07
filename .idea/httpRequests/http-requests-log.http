@@ -1,0 +1,128 @@
+POST http://localhost:8080/api/v1/User/loginUser
+Content-Type: application/json
+Content-Length: 51
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "username": "akinob",
+  "password": "toyolar"
+}
+
+<> 2024-09-07T164855.201.json
+
+###
+
+POST http://localhost:8080/api/v1/Admin/loginAdmin
+Content-Type: application/json
+Content-Length: 53
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "userName": "akin234",
+  "password": "12345689"
+}
+
+<> 2024-09-07T160303.201.json
+
+###
+
+POST http://localhost:8080/api/v1/Admin/registerAdmin
+Content-Type: application/json
+Content-Length: 274
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "firstName": "toluwa",
+  "lastName": "yemiola",
+  "email": "toluak@ye28",
+  "phoneNumber": "08104375192",
+  "gender": "male",
+  "password": "12345689",
+  "confirmPassword": "12345689",
+  "userName": "akin234",
+  "homeAddress": "yaba",
+  "confirmedEmail": "toluak@ye28"
+}
+
+<> 2024-09-07T155124.201.json
+
+###
+
+POST http://localhost:8080/api/v1/Admin/registerAdmin
+Content-Type: application/json
+Content-Length: 260
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "firstName": "tolu",
+  "lastName": "yemi",
+  "email": "toluak@28",
+  "phoneNumber": "08104375142",
+  "gender": "male",
+  "password": "123456",
+  "confirmPassword": "123456",
+  "userName": "akin23",
+  "homeAddress": "yaba",
+  "confirmedEmail": "toluak@28"
+}
+
+<> 2024-09-07T155010.400.json
+
+###
+
+POST http://localhost:8080/api/v1/Admin/registerAdmin
+Content-Type: application/json
+Content-Length: 257
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "firstName": "tolu",
+  "lastName": "yemi",
+  "email": "toluak28",
+  "phoneNumber": "08104375142",
+  "gender": "male",
+  "password": "123456",
+  "confirmPassword": "123456",
+  "userName": "akin23",
+  "homeAddress": "yaba",
+  "confirmedEmail": "tolua28"
+}
+
+<> 2024-09-07T154937.400.json
+
+###
+
+POST http://localhost:8080/api/v1/Admin/registerAdmin
+Content-Type: application/json
+Content-Length: 264
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "firstName": "tolu",
+  "lastName": "yemi",
+  "email": "toluak@ak28",
+  "phoneNumber": "08104375142",
+  "gender": "male",
+  "password": "123456",
+  "confirmPassword": "123456",
+  "userName": "akin23",
+  "homeAddress": "yaba",
+  "confirmedEmail": "toluak@ak28"
+}
+
+<> 2024-09-07T154608.201.json
+
+###
+

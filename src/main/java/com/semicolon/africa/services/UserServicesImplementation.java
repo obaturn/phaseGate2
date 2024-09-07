@@ -52,8 +52,8 @@ public class UserServicesImplementation implements UserServices {
         if (userRegisterRequest.getLastName() == null || userRegisterRequest.getLastName().trim().isEmpty()) {
             throw new UserExceptions("last name is required pls input lastName");
         }
-        if (userRegisterRequest.getEmail() == null || userRegisterRequest.getEmail().trim().isEmpty()) {
-            throw new UserExceptions("email is required pls input email");
+        if (userRegisterRequest.getEmail() == null || userRegisterRequest.getEmail().trim().isEmpty() || !userRegisterRequest.getEmail().matches(".*@")) {
+            throw new UserExceptions("email is required pls input email and must contain annotation of '@'");
         }
         if (userRegisterRequest.getPhoneNumber() == null || userRegisterRequest.getPhoneNumber().trim().isEmpty()) {
             throw new UserExceptions("phone number is required pls input phone number");
@@ -72,7 +72,7 @@ public class UserServicesImplementation implements UserServices {
 
         }
         if(userRegisterRequest.getPhoneNumber().length()!=11){
-            throw new UserExceptions("phone number must be 11 digit");
+            throw new UserExceptions("phone number must be exactly 11 digit not less than 11 digit or more than 11 digit");
         }
         Optional<User>userOptional = userRepository.findByUserName(userRegisterRequest.getUserName());
         if(userOptional.isPresent()){

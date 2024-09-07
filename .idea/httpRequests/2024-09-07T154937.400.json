@@ -1,0 +1,4 @@
+{
+  "success": false,
+  "data": "Email cannot be empty and must contain '@'"
+}

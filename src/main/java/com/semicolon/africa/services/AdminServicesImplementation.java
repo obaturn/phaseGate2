@@ -204,8 +204,12 @@ public class AdminServicesImplementation implements AdminServices {
         if(adminRegisterRequest.getUserName() == null || adminRegisterRequest.getUserName().trim().isEmpty()){
             throw new AdminExceptions("userName cannot be empty pls input user name");
         }
-        if(adminRegisterRequest.getConfirmedEmail() == null || adminRegisterRequest.getConfirmedEmail().trim().isEmpty() || !adminRegisterRequest.getConfirmedEmail().matches(".*@.*")){
-            throw new AdminExceptions("confirmedEmail cannot be empty pls input confirmed email and must contain @ annotation");
+        if (adminRegisterRequest.getConfirmedEmail() == null || adminRegisterRequest.getConfirmedEmail().trim().isEmpty() || !adminRegisterRequest.getConfirmedEmail().matches(".*@."))  {
+            throw new AdminExceptions("confirmedEmail cannot be empty pls input confirmed email");
+        }
+        if(!adminRegisterRequest.getPhoneNumber().matches("//d+")){
+            throw new AdminExceptions("phoneNumber must start with positive Numbers");
+
         }
         if(!adminRegisterRequest.getConfirmedEmail().equals(adminRegisterRequest.getEmail())){
             throw new AdminExceptions("confirmed email does not match email pls input the correct own");
