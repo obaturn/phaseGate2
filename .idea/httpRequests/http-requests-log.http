@@ -1,5 +1,21 @@
 POST http://localhost:8080/api/v1/Admin/deleteUserAccount
 Content-Type: application/json
+Content-Length: 58
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "adminEmail": "toluak@ye28",
+  "username": "obar@28"
+}
+
+<> 2024-09-07T235823.500.json
+
+###
+
+POST http://localhost:8080/api/v1/Admin/deleteUserAccount
+Content-Type: application/json
 Content-Length: 71
 User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
 Accept-Encoding: br, deflate, gzip, x-gzip

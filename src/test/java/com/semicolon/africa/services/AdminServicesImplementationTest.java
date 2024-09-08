@@ -122,7 +122,7 @@ class AdminServicesImplementationTest {
 
         DeleteUserAccountRequest request = new DeleteUserAccountRequest();
         request.setAdminEmail(adminEmail);
-        request.setUsername(username);
+        request.setUser_username(username);
 
 
         AdminDeleteUserResponse response = adminServices.deleteUserAccount(request);
@@ -141,7 +141,7 @@ class AdminServicesImplementationTest {
 
         DeleteUserAccountRequest request = new DeleteUserAccountRequest();
         request.setAdminEmail(adminEmail);
-        request.setUsername(username);
+        request.setUser_username(username);
 
 
         assertThrows(AdminExceptions.class, () -> {
@@ -161,7 +161,7 @@ class AdminServicesImplementationTest {
 
         DeleteUserAccountRequest request = new DeleteUserAccountRequest();
         request.setAdminEmail(adminEmail);
-        request.setUsername(username);
+        request.setUser_username(username);
 
 
         assertThrows(AdminExceptions.class, () -> {
@@ -181,7 +181,7 @@ class AdminServicesImplementationTest {
 
         DeleteUserAccountRequest request = new DeleteUserAccountRequest();
         request.setAdminEmail(adminEmail);
-        request.setUsername(username);
+        request.setUser_username(username);
 
         assertThrows(AdminExceptions.class, () -> {
             adminServices.deleteUserAccount(request);

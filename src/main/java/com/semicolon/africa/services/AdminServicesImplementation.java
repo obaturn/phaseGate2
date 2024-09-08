@@ -93,11 +93,11 @@ public class AdminServicesImplementation implements AdminServices {
             throw new AdminExceptions("Admin with the given id does not exist.");
         }
 
-        Optional<User> userOptional = userRepository.findByUserName(request.getUsername());
+        Optional<User> userOptional = userRepository.findByUserName(request.getUser_username());
         if(userOptional.isEmpty()){
             throw new AdminExceptions("User with the given identity does not exist.");
         }
-        if (request.getUsername() == null) {
+        if (request.getUser_username() == null) {
             throw new IllegalArgumentException("User identity must not be null");
         }
 

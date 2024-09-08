@@ -1,15 +1,10 @@
 package com.semicolon.africa.services;
 
+import com.semicolon.africa.Utilities.MyMethodEncryption;
 import com.semicolon.africa.data.model.User;
 import com.semicolon.africa.data.repository.UserRepository;
-import com.semicolon.africa.dto.UserRequest.UserLoginRequest;
-import com.semicolon.africa.dto.UserRequest.UserRegisterRequest;
-import com.semicolon.africa.dto.UserRequest.UserResetPasswordRequest;
-import com.semicolon.africa.dto.UserRequest.UserStoreRequest;
-import com.semicolon.africa.dto.UserResponse.UserLoginResponse;
-import com.semicolon.africa.dto.UserResponse.UserRegisterResponse;
-import com.semicolon.africa.dto.UserResponse.UserResetPasswordResponse;
-import com.semicolon.africa.dto.UserResponse.UserStoreResponse;
+import com.semicolon.africa.dto.UserRequest.*;
+import com.semicolon.africa.dto.UserResponse.*;
 import com.semicolon.africa.exceptions.UserExceptions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -35,12 +30,12 @@ public class UserServicesImplementation implements UserServices {
         user.setFirstName(userRegisterRequest.getFirstName());
         user.setLastName(userRegisterRequest.getLastName());
         user.setEmail(userRegisterRequest.getEmail());
-        user.setPassword(passwordEncoder.encode(userRegisterRequest.getPassword()));
+        user.setPassword(MyMethodEncryption.encrypt(userRegisterRequest.getPassword()));
         user.setPhoneNumber(userRegisterRequest.getPhoneNumber());
         user.setGender(userRegisterRequest.getGender());
         user.setUserName(userRegisterRequest.getUserName());
         user.setAddress(userRegisterRequest.getAddress());
-        user.setConfirmPassword(passwordEncoder.encode(userRegisterRequest.getConfirmPassword()));
+        user.setConfirmPassword(MyMethodEncryption.encrypt(userRegisterRequest.getConfirmPassword()));
         userRepository.save(user);
         UserRegisterResponse response = new UserRegisterResponse();
         response.setMessage("you have been registered successfully");
@@ -73,6 +68,11 @@ public class UserServicesImplementation implements UserServices {
             throw new UserExceptions("confirm password is required pls input confirm password");
         }
         if (!userRegisterRequest.getPassword().equals(userRegisterRequest.getConfirmPassword())) {
+            throw new UserExceptions("password does not match confirm password");
+        }
+        String encryptedPassword = MyMethodEncryption.encrypt(userRegisterRequest.getPassword());
+        String encryptedConfirmPassword = MyMethodEncryption.encrypt(userRegisterRequest.getConfirmPassword());
+        if(!encryptedPassword.equals(encryptedConfirmPassword)) {
             throw new UserExceptions("password does not match confirm password");
         }
         if(!userRegisterRequest.getPhoneNumber().matches("\\d+")){
@@ -115,7 +115,11 @@ public class UserServicesImplementation implements UserServices {
             if(user.isDisable()){
                 throw new UserExceptions("your account is disabled pls inform our customer account");
             }
-            if (passwordEncoder.matches(userLoginRequest.getPassword(), user.getPassword())) {
+            String decryptedPassword = MyMethodEncryption.decrypt(user.getPassword());
+            if (!decryptedPassword.equals(userLoginRequest.getPassword())) {
+
+                throw new UserExceptions("password does not match confirm password");
+            }
                 user.setLogin(true);
                 userRepository.save(user);
 
@@ -124,13 +128,9 @@ public class UserServicesImplementation implements UserServices {
                 response.setLoginStatus(true);
                 return response;
             } else {
-                throw new UserExceptions("Invalid password");
+                throw new UserExceptions("Username not found");
             }
-        } else {
-            throw new UserExceptions("Username not found");
         }
-    }
-
     @Override
     public UserResetPasswordResponse resetPassword(UserResetPasswordRequest userResetPasswordRequest) {
         Optional<User> optionalUser = userRepository.findByEmail(userResetPasswordRequest.getEmail());
@@ -175,6 +175,26 @@ public class UserServicesImplementation implements UserServices {
         }
     }
 
+    @Override
+    public UserSavedPasswordResponse saveUserPassword(UserSavedPasswordRequest userSavedPasswordRequest) {
+        if (userSavedPasswordRequest.getFirstName().trim().isEmpty() && userSavedPasswordRequest.getLastName().trim().isEmpty()) {
 
+            Optional<User> userOptional = userRepository.findByFirstNameAndLastName(userSavedPasswordRequest.getFirstName(), userSavedPasswordRequest.getLastName());
+            if (userOptional.isPresent()) {
+                User user = userOptional.get();
+                String encryptPassword = MyMethodEncryption.encrypt(userSavedPasswordRequest.getPassword());
+                user.setPassword(encryptPassword);
+                userRepository.save(user);
+                UserSavedPasswordResponse response = new UserSavedPasswordResponse();
+                response.setMessage("Your password has been successfully saved");
+                response.setDateTime(LocalDateTime.now());
+                return response;
+
+            }
+
+        }
+        throw  new UserExceptions("Please input your first name and last name");
+
+    }
 }
 

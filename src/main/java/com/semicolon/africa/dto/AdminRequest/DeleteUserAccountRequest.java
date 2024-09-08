@@ -7,5 +7,5 @@ import lombok.Setter;
 @Setter
 public class DeleteUserAccountRequest {
     private String adminEmail;
-    private String username;
+    private String User_username;
 }
