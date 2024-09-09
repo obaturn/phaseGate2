@@ -9,5 +9,6 @@ public interface UserServices {
     UserResetPasswordResponse resetPassword(UserResetPasswordRequest userResetPasswordRequest);
     UserStoreResponse storeUserImportantFiles(UserStoreRequest userStoreRequest);
     UserSavedPasswordResponse saveUserPassword(UserSavedPasswordRequest userSavedPasswordRequest);
+    UserRetrievePasswordResponse retrievePassword(UserRetrievePasswordRequest userRetrievePasswordRequest);
 
 }

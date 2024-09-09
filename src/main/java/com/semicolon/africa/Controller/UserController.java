@@ -1,14 +1,8 @@
 package com.semicolon.africa.Controller;
 
 import com.semicolon.africa.dto.AdminResponse.ApiResponse;
-import com.semicolon.africa.dto.UserRequest.UserLoginRequest;
-import com.semicolon.africa.dto.UserRequest.UserRegisterRequest;
-import com.semicolon.africa.dto.UserRequest.UserResetPasswordRequest;
-import com.semicolon.africa.dto.UserRequest.UserStoreRequest;
-import com.semicolon.africa.dto.UserResponse.UserLoginResponse;
-import com.semicolon.africa.dto.UserResponse.UserRegisterResponse;
-import com.semicolon.africa.dto.UserResponse.UserResetPasswordResponse;
-import com.semicolon.africa.dto.UserResponse.UserStoreResponse;
+import com.semicolon.africa.dto.UserRequest.*;
+import com.semicolon.africa.dto.UserResponse.*;
 import com.semicolon.africa.services.UserServicesImplementation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -56,6 +50,24 @@ public class UserController {
     public ResponseEntity<?> storeImportantFiles(@RequestBody UserStoreRequest userStoreRequest) {
         try{
             UserStoreResponse response = userService.storeUserImportantFiles(userStoreRequest);
+            return new ResponseEntity<>(new ApiResponse(true, response),CREATED);
+        }catch (Exception e){
+            return new ResponseEntity<>(new ApiResponse(false,e.getMessage()),BAD_GATEWAY);
+        }
+    }
+    @PostMapping("/saveUserPassword")
+    public ResponseEntity<?> saveUserPassword(@RequestBody UserSavedPasswordRequest userSavedPasswordRequest){
+        try{
+            UserSavedPasswordResponse response =userService.saveUserPassword(userSavedPasswordRequest);
+            return new ResponseEntity<>(new ApiResponse(true, response),CREATED);
+        }catch (Exception e){
+            return new ResponseEntity<>(new ApiResponse(false,e.getMessage()),BAD_GATEWAY);
+        }
+    }
+    @PostMapping("/retrievePassword")
+    public ResponseEntity<?> retrievePassword(@RequestBody UserRetrievePasswordRequest userRetrievePasswordRequest){
+        try{
+            UserRetrievePasswordResponse response =userService.retrievePassword(userRetrievePasswordRequest);
             return new ResponseEntity<>(new ApiResponse(true, response),CREATED);
         }catch (Exception e){
             return new ResponseEntity<>(new ApiResponse(false,e.getMessage()),BAD_GATEWAY);

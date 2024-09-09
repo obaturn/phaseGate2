@@ -5,16 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4e2ad661-3416-4460-96ff-e025f8851d25" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/Utilities/MyMethodEncryption.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/dto/UserRequest/UserSavedPasswordRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/dto/UserResponse/UserSavedPasswordResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/dto/UserRequest/UserRetrievePasswordRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/dto/UserResponse/UserRetrievePasswordResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/dto/AdminRequest/DeleteUserAccountRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/dto/AdminRequest/DeleteUserAccountRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/services/AdminServicesImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/services/AdminServicesImplementation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/Controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/Controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/services/UserServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/services/UserServices.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/services/UserServicesImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/services/UserServicesImplementation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/semicolon/africa/services/AdminServicesImplementationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/semicolon/africa/services/AdminServicesImplementationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/semicolon/africa/services/UserServicesImplementationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/semicolon/africa/services/UserServicesImplementationTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,6 +88,8 @@
     &quot;JUnit.UserServicesImplementationTest.TestThat_User_Can_Store_Some_important_files.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.UserServicesImplementationTest.TestThat_my_restPassword_Method_could_throw_exception_if_no_User.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.UserServicesImplementationTest.test_That_I_registerUser.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserServicesImplementationTest.test_That_my_user_can_saved_password.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserServicesImplementationTest.test_That_my_user_get_their_password_back.executor&quot;: &quot;Run&quot;,
     &quot;Maven.PasswordManagement [clean].executor&quot;: &quot;Run&quot;,
     &quot;Maven.PasswordManagement [compile].executor&quot;: &quot;Run&quot;,
     &quot;Maven.PasswordManagement [install].executor&quot;: &quot;Run&quot;,
@@ -140,41 +139,9 @@
       <command value="mvn install" />
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.Main">
+  <component name="RunManager" selected="JUnit.UserServicesImplementationTest.test_That_my_user_get_their_password_back">
     <configuration name="generated-requests | #29" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="29" requestIdentifier="#29" runType="Run single request">
       <method v="2" />
-    </configuration>
-    <configuration name="AdminServicesImplementationTest.testDisableUserAccount_AdminNotFound" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="PasswordManagement" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.semicolon.africa.services.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.semicolon.africa.services" />
-      <option name="MAIN_CLASS_NAME" value="com.semicolon.africa.services.AdminServicesImplementationTest" />
-      <option name="METHOD_NAME" value="testDisableUserAccount_AdminNotFound" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AdminServicesImplementationTest.testDisableUserAccount_Success" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="PasswordManagement" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.semicolon.africa.services.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.semicolon.africa.services" />
-      <option name="MAIN_CLASS_NAME" value="com.semicolon.africa.services.AdminServicesImplementationTest" />
-      <option name="METHOD_NAME" value="testDisableUserAccount_Success" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
     </configuration>
     <configuration name="AdminServicesImplementationTest.testDisableUserAccount_UserNotFound" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="PasswordManagement" />
@@ -187,6 +154,38 @@
       <option name="PACKAGE_NAME" value="com.semicolon.africa.services" />
       <option name="MAIN_CLASS_NAME" value="com.semicolon.africa.services.AdminServicesImplementationTest" />
       <option name="METHOD_NAME" value="testDisableUserAccount_UserNotFound" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServicesImplementationTest.test_That_my_user_can_saved_password" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PasswordManagement" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.semicolon.africa.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.semicolon.africa.services" />
+      <option name="MAIN_CLASS_NAME" value="com.semicolon.africa.services.UserServicesImplementationTest" />
+      <option name="METHOD_NAME" value="test_That_my_user_can_saved_password" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServicesImplementationTest.test_That_my_user_get_their_password_back" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PasswordManagement" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.semicolon.africa.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.semicolon.africa.services" />
+      <option name="MAIN_CLASS_NAME" value="com.semicolon.africa.services.UserServicesImplementationTest" />
+      <option name="METHOD_NAME" value="test_That_my_user_get_their_password_back" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -207,18 +206,18 @@
     </configuration>
     <list>
       <item itemvalue="HTTP Request.generated-requests | #29" />
-      <item itemvalue="JUnit.AdminServicesImplementationTest.testDisableUserAccount_AdminNotFound" />
-      <item itemvalue="JUnit.AdminServicesImplementationTest.testDisableUserAccount_Success" />
+      <item itemvalue="JUnit.UserServicesImplementationTest.test_That_my_user_can_saved_password" />
+      <item itemvalue="JUnit.UserServicesImplementationTest.test_That_my_user_get_their_password_back" />
       <item itemvalue="JUnit.AdminServicesImplementationTest.testDisableUserAccount_UserNotFound" />
       <item itemvalue="Spring Boot.Main" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.UserServicesImplementationTest.test_That_my_user_get_their_password_back" />
+        <item itemvalue="JUnit.UserServicesImplementationTest.test_That_my_user_can_saved_password" />
         <item itemvalue="Spring Boot.Main" />
         <item itemvalue="HTTP Request.generated-requests | #29" />
         <item itemvalue="JUnit.AdminServicesImplementationTest.testDisableUserAccount_UserNotFound" />
-        <item itemvalue="JUnit.AdminServicesImplementationTest.testDisableUserAccount_AdminNotFound" />
-        <item itemvalue="JUnit.AdminServicesImplementationTest.testDisableUserAccount_Success" />
       </list>
     </recent_temporary>
   </component>
@@ -288,7 +287,9 @@
       <workItem from="1725814909160" duration="3061000" />
       <workItem from="1725829423150" duration="431000" />
       <workItem from="1725829885960" duration="350000" />
-      <workItem from="1725831837980" duration="3748000" />
+      <workItem from="1725831837980" duration="9055000" />
+      <workItem from="1725859799900" duration="2831000" />
+      <workItem from="1725870130809" duration="90000" />
     </task>
     <servers />
   </component>

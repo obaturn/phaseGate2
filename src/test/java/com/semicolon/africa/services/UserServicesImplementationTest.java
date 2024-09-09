@@ -2,14 +2,8 @@ package com.semicolon.africa.services;
 
 import com.semicolon.africa.data.model.User;
 import com.semicolon.africa.data.repository.UserRepository;
-import com.semicolon.africa.dto.UserRequest.UserLoginRequest;
-import com.semicolon.africa.dto.UserRequest.UserRegisterRequest;
-import com.semicolon.africa.dto.UserRequest.UserResetPasswordRequest;
-import com.semicolon.africa.dto.UserRequest.UserStoreRequest;
-import com.semicolon.africa.dto.UserResponse.UserLoginResponse;
-import com.semicolon.africa.dto.UserResponse.UserRegisterResponse;
-import com.semicolon.africa.dto.UserResponse.UserResetPasswordResponse;
-import com.semicolon.africa.dto.UserResponse.UserStoreResponse;
+import com.semicolon.africa.dto.UserRequest.*;
+import com.semicolon.africa.dto.UserResponse.*;
 import com.semicolon.africa.exceptions.UserExceptions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -195,5 +189,65 @@ void setUp(){
 
         assertEquals("User not found", exception.getMessage());
     }
+    @Test
+    public void test_That_my_user_can_saved_password(){
+    UserRegisterRequest registerRequest = new UserRegisterRequest();
+    registerRequest.setFirstName("Catalase");
+    registerRequest.setLastName("Doyen");
+    registerRequest.setEmail("catalase@doyen.com");
+    registerRequest.setPassword("toluwalase123456");
+    registerRequest.setConfirmPassword("toluwalase123456");
+    registerRequest.setPhoneNumber("08145678901");
+    registerRequest.setUserName("obar@28");
+    registerRequest.setAddress("yaba");
 
+    UserRegisterResponse registerResponse = userServices.registerUser(registerRequest);
+
+    assertNotNull(registerResponse);
+
+        UserSavedPasswordRequest savedRequest = new UserSavedPasswordRequest();
+        savedRequest.setFirstName("Catalase");
+        savedRequest.setLastName("Doyen");
+        savedRequest.setPassword("yemiola123456");
+
+    UserSavedPasswordResponse savedResponse = userServices.saveUserPassword(savedRequest);
+    savedResponse.setMessage("Your password has been successfully saved");
+
+    assertNotNull(savedResponse);
+    assertThat(savedRequest.getPassword()).isEqualTo("yemiola123456");
+
+    }
+
+    @Test
+    public void test_That_my_user_get_their_password_back(){
+    UserRegisterRequest registerRequest = new UserRegisterRequest();
+        registerRequest.setFirstName("mathew");
+        registerRequest.setLastName("Doyin");
+        registerRequest.setEmail("lase@do.com");
+        registerRequest.setPassword("toluwa123456@28");
+        registerRequest.setConfirmPassword("toluwa123456@28");
+        registerRequest.setPhoneNumber("08145678909");
+        registerRequest.setUserName("oba@28");
+        registerRequest.setAddress("osun");
+
+        UserRegisterResponse registerResponse = userServices.registerUser(registerRequest);
+
+        assertNotNull(registerResponse);
+        UserSavedPasswordRequest savedRequest = new UserSavedPasswordRequest();
+        savedRequest.setFirstName("mathew");
+        savedRequest.setLastName("Doyin");
+        savedRequest.setPassword("olayemi");
+
+        UserSavedPasswordResponse savedResponse = userServices.saveUserPassword(savedRequest);
+        savedResponse.setMessage("Your password has been successfully saved");
+
+        UserRetrievePasswordRequest retrievePasswordRequest = new UserRetrievePasswordRequest();
+        retrievePasswordRequest.setEmail("lase@do.com");
+        retrievePasswordRequest.setUserName("oba@28");
+
+        UserRetrievePasswordResponse retrievePasswordResponse = userServices.retrievePassword(retrievePasswordRequest);
+        retrievePasswordResponse.setMessage("Your have successfully retrieve back your password");
+        assertNotNull(retrievePasswordResponse);
+        assertThat(retrievePasswordResponse.getPassword()).isEqualTo("olayemi");
+    }
 }

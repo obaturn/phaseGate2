@@ -177,24 +177,50 @@ public class UserServicesImplementation implements UserServices {
 
     @Override
     public UserSavedPasswordResponse saveUserPassword(UserSavedPasswordRequest userSavedPasswordRequest) {
-        if (userSavedPasswordRequest.getFirstName().trim().isEmpty() && userSavedPasswordRequest.getLastName().trim().isEmpty()) {
+        if (userSavedPasswordRequest.getFirstName() == null || userSavedPasswordRequest.getFirstName().trim().isEmpty() ||
+                userSavedPasswordRequest.getLastName() == null || userSavedPasswordRequest.getLastName().trim().isEmpty()) {
+            throw new UserExceptions("Please input your first name and last name");
+        }
 
-            Optional<User> userOptional = userRepository.findByFirstNameAndLastName(userSavedPasswordRequest.getFirstName(), userSavedPasswordRequest.getLastName());
-            if (userOptional.isPresent()) {
-                User user = userOptional.get();
-                String encryptPassword = MyMethodEncryption.encrypt(userSavedPasswordRequest.getPassword());
-                user.setPassword(encryptPassword);
-                userRepository.save(user);
-                UserSavedPasswordResponse response = new UserSavedPasswordResponse();
-                response.setMessage("Your password has been successfully saved");
-                response.setDateTime(LocalDateTime.now());
-                return response;
+        Optional<User> userOptional = userRepository.findByFirstNameAndLastName(userSavedPasswordRequest.getFirstName(), userSavedPasswordRequest.getLastName());
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
+            String encryptPassword = MyMethodEncryption.encrypt(userSavedPasswordRequest.getPassword());
+            user.setPassword(encryptPassword);
+            userRepository.save(user);
 
-            }
+            UserSavedPasswordResponse response = new UserSavedPasswordResponse();
+            response.setMessage("Your password has been successfully saved");
+            response.setDateTime(LocalDateTime.now());
+            return response;
+        }
+
+        throw new UserExceptions("User not found with the provided first name and last name");
+    }
+
+
+    @Override
+    public UserRetrievePasswordResponse retrievePassword(UserRetrievePasswordRequest userRetrievePasswordRequest) {
+        if(userRetrievePasswordRequest.getUserName() == null || userRetrievePasswordRequest.getUserName().trim().isEmpty()){
+            throw new UserExceptions("Username is empty, please input username");
+        }
+        if(userRetrievePasswordRequest.getEmail() == null || userRetrievePasswordRequest.getEmail().trim().isEmpty() || !userRetrievePasswordRequest.getEmail().matches(".*@.*")){
+            throw new UserExceptions("Email address is empty pls input email with the annotation @ in the email");
 
         }
-        throw  new UserExceptions("Please input your first name and last name");
+        Optional<User> userOptional = userRepository.findByEmail(userRetrievePasswordRequest.getEmail());
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
+            String decryptedPassword = MyMethodEncryption.decrypt(user.getPassword());
+            UserRetrievePasswordResponse response = new UserRetrievePasswordResponse();
+            response.setMessage("Your have successfully retrieve back your password");
+            response.setTimestamp(LocalDateTime.now());
+            response.setStatus("SUCCESS");
+            response.setPassword(decryptedPassword);
+            return response;
 
+        }
+        throw  new UserExceptions("user not found with the email and the username provided");
+     }
     }
-}
 
