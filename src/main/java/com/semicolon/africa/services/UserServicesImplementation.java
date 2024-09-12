@@ -8,7 +8,6 @@ import com.semicolon.africa.dto.UserResponse.*;
 import com.semicolon.africa.exceptions.UserExceptions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -18,7 +17,6 @@ import java.util.Optional;
 public class UserServicesImplementation implements UserServices {
     @Autowired
     private UserRepository userRepository;
-    private final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
     @Override
     public UserRegisterResponse registerUser(UserRegisterRequest userRegisterRequest) {
         try{
@@ -36,12 +34,13 @@ public class UserServicesImplementation implements UserServices {
         user.setUserName(userRegisterRequest.getUserName());
         user.setAddress(userRegisterRequest.getAddress());
         user.setConfirmPassword(MyMethodEncryption.encrypt(userRegisterRequest.getConfirmPassword()));
+        user.setConfirmedEmail(userRegisterRequest.getConfirmedEmail());
         userRepository.save(user);
         UserRegisterResponse response = new UserRegisterResponse();
         response.setMessage("you have been registered successfully");
         response.setFirstName(userRegisterRequest.getFirstName());
         response.setLastName(userRegisterRequest.getLastName());
-        response.setStatusMessage("200 created successfully");
+        response.setStatusMessage("created successfully");
         return response;
     }
 
@@ -81,6 +80,14 @@ public class UserServicesImplementation implements UserServices {
         }
         if(userRegisterRequest.getPhoneNumber().length()!=11){
             throw new UserExceptions("phone number must be exactly 11 digit not less than 11 digit or more than 11 digit");
+        }
+        if(userRegisterRequest.getConfirmedEmail() == null || userRegisterRequest.getConfirmedEmail().trim().isEmpty() ){
+            throw new UserExceptions("confirmed email is required");
+
+        }
+        if(!userRegisterRequest.getConfirmedEmail() .equals(userRegisterRequest.getEmail()) ){
+            throw new UserExceptions("confirmed email does not match email");
+
         }
         Optional<User>userOptional = userRepository.findByUserName(userRegisterRequest.getUserName());
         if(userOptional.isPresent()){

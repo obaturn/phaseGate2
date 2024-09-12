@@ -26,5 +26,6 @@ public class User {
     private UserStoreRequest request;
     private String  tittle;
     private String body;
+    private String confirmedEmail;
 
 }

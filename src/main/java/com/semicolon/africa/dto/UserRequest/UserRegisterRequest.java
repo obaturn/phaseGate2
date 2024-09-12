@@ -13,4 +13,5 @@ public class UserRegisterRequest {
     private String address;
     private String userName;
     private String gender;
+    private String confirmedEmail;
 }
