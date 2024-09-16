@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4e2ad661-3416-4460-96ff-e025f8851d25" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/data/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/data/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/dto/UserRequest/UserRegisterRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/dto/UserRequest/UserRegisterRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/Controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/Controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/data/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/data/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/dto/UserResponse/UserRegisterResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/dto/UserResponse/UserRegisterResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/services/UserServicesImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/semicolon/africa/services/UserServicesImplementation.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,6 +55,7 @@
     &quot;HTTP Request.generated-requests | #27.executor&quot;: &quot;Run&quot;,
     &quot;HTTP Request.generated-requests | #28.executor&quot;: &quot;Run&quot;,
     &quot;HTTP Request.generated-requests | #29.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #31.executor&quot;: &quot;Run&quot;,
     &quot;HTTP Request.generated-requests | #6.executor&quot;: &quot;Run&quot;,
     &quot;HTTP Request.generated-requests | #7.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.AdminServicesImplementationTest.Test_I_Can_get_All_Users.executor&quot;: &quot;Run&quot;,
@@ -136,25 +139,12 @@
       <command value="mvn install" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.UserServicesImplementationTest.test_That_my_user_get_their_password_back">
+  <component name="RunManager" selected="Spring Boot.Main">
     <configuration name="generated-requests | #29" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="29" requestIdentifier="#29" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="AdminServicesImplementationTest.testDisableUserAccount_UserNotFound" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="PasswordManagement" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.semicolon.africa.services.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.semicolon.africa.services" />
-      <option name="MAIN_CLASS_NAME" value="com.semicolon.africa.services.AdminServicesImplementationTest" />
-      <option name="METHOD_NAME" value="testDisableUserAccount_UserNotFound" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="generated-requests | #31" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="31" requestIdentifier="#31" runType="Run single request">
+      <method v="2" />
     </configuration>
     <configuration name="UserServicesImplementationTest.test_That_my_user_can_saved_password" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="PasswordManagement" />
@@ -202,19 +192,19 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="HTTP Request.generated-requests | #31" />
       <item itemvalue="HTTP Request.generated-requests | #29" />
       <item itemvalue="JUnit.UserServicesImplementationTest.test_That_my_user_can_saved_password" />
       <item itemvalue="JUnit.UserServicesImplementationTest.test_That_my_user_get_their_password_back" />
-      <item itemvalue="JUnit.AdminServicesImplementationTest.testDisableUserAccount_UserNotFound" />
       <item itemvalue="Spring Boot.Main" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Spring Boot.Main" />
+        <item itemvalue="HTTP Request.generated-requests | #31" />
         <item itemvalue="JUnit.UserServicesImplementationTest.test_That_my_user_get_their_password_back" />
         <item itemvalue="JUnit.UserServicesImplementationTest.test_That_my_user_can_saved_password" />
-        <item itemvalue="Spring Boot.Main" />
         <item itemvalue="HTTP Request.generated-requests | #29" />
-        <item itemvalue="JUnit.AdminServicesImplementationTest.testDisableUserAccount_UserNotFound" />
       </list>
     </recent_temporary>
   </component>
@@ -294,7 +284,16 @@
       <workItem from="1726054779957" duration="648000" />
       <workItem from="1726081358801" duration="26000" />
       <workItem from="1726095849761" duration="575000" />
-      <workItem from="1726132930115" duration="1408000" />
+      <workItem from="1726132930115" duration="2191000" />
+      <workItem from="1726137303083" duration="705000" />
+      <workItem from="1726142144170" duration="20000" />
+      <workItem from="1726142222664" duration="2013000" />
+      <workItem from="1726182288788" duration="216000" />
+      <workItem from="1726184089039" duration="4986000" />
+      <workItem from="1726211893196" duration="2075000" />
+      <workItem from="1726216122229" duration="637000" />
+      <workItem from="1726293374060" duration="499000" />
+      <workItem from="1726413848813" duration="7299000" />
     </task>
     <servers />
   </component>

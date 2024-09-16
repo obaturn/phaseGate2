@@ -23,7 +23,7 @@ public class UserServicesImplementation implements UserServices {
             validateUserRegistration(userRegisterRequest);
         }catch (UserExceptions e){
             throw new UserExceptions(e.getMessage());
-        }
+           }
         User user = new User();
         user.setFirstName(userRegisterRequest.getFirstName());
         user.setLastName(userRegisterRequest.getLastName());
@@ -40,6 +40,8 @@ public class UserServicesImplementation implements UserServices {
         response.setMessage("you have been registered successfully");
         response.setFirstName(userRegisterRequest.getFirstName());
         response.setLastName(userRegisterRequest.getLastName());
+        response.setAddress(userRegisterRequest.getAddress());
+        response.setGender(userRegisterRequest.getGender());
         response.setStatusMessage("created successfully");
         return response;
     }
@@ -71,42 +73,46 @@ public class UserServicesImplementation implements UserServices {
         }
         String encryptedPassword = MyMethodEncryption.encrypt(userRegisterRequest.getPassword());
         String encryptedConfirmPassword = MyMethodEncryption.encrypt(userRegisterRequest.getConfirmPassword());
-        if(!encryptedPassword.equals(encryptedConfirmPassword)) {
+        if (!encryptedPassword.equals(encryptedConfirmPassword)) {
             throw new UserExceptions("password does not match confirm password");
         }
-        if(!userRegisterRequest.getPhoneNumber().matches("\\d+")){
+        if (!userRegisterRequest.getPhoneNumber().matches("\\d+")) {
             throw new UserExceptions("phone number is not valid pls input a positive Number");
 
         }
-        if(userRegisterRequest.getPhoneNumber().length()!=11){
+        if (userRegisterRequest.getPhoneNumber().length() != 11) {
             throw new UserExceptions("phone number must be exactly 11 digit not less than 11 digit or more than 11 digit");
         }
-        if(userRegisterRequest.getConfirmedEmail() == null || userRegisterRequest.getConfirmedEmail().trim().isEmpty() ){
+        if (userRegisterRequest.getConfirmedEmail() == null || userRegisterRequest.getConfirmedEmail().trim().isEmpty()) {
             throw new UserExceptions("confirmed email is required");
 
         }
-        if(!userRegisterRequest.getConfirmedEmail() .equals(userRegisterRequest.getEmail()) ){
+        if (!userRegisterRequest.getConfirmedEmail().equals(userRegisterRequest.getEmail())) {
             throw new UserExceptions("confirmed email does not match email");
 
         }
-        Optional<User>userOptional = userRepository.findByUserName(userRegisterRequest.getUserName());
-        if(userOptional.isPresent()){
+        Optional<User> userOptional = userRepository.findByUserName(userRegisterRequest.getUserName());
+        if (userOptional.isPresent()) {
             throw new UserExceptions("username already exists");
         }
-        Optional<User>duplicateFirstNameAndLastName = userRepository.findByFirstNameAndLastName(userRegisterRequest.getFirstName(), userRegisterRequest.getLastName());
-        if(duplicateFirstNameAndLastName.isPresent()){
+        Optional<User> duplicateFirstNameAndLastName = userRepository.findByFirstNameAndLastName(userRegisterRequest.getFirstName(), userRegisterRequest.getLastName());
+        if (duplicateFirstNameAndLastName.isPresent()) {
             throw new UserExceptions("first name already exists and last name already exists");
         }
-        Optional<User>duplicateEmail = userRepository.findByEmail(userRegisterRequest.getEmail());
-        if(duplicateEmail.isPresent()){
+        Optional<User> duplicateEmail = userRepository.findByEmail(userRegisterRequest.getEmail());
+        if (duplicateEmail.isPresent()) {
             throw new UserExceptions("email already exists");
         }
-        Optional<User>duplicatePhoneNumber = userRepository.findByPhoneNumber(userRegisterRequest.getPhoneNumber());
-        if(duplicatePhoneNumber.isPresent()){
+        Optional<User> duplicatePhoneNumber = userRepository.findByPhoneNumber(userRegisterRequest.getPhoneNumber());
+        if (duplicatePhoneNumber.isPresent()) {
             throw new UserExceptions("phone number already exists");
         }
-    }
 
+        Optional<User> userChecker = userRepository.findByPassword(userRegisterRequest.getPassword());
+        if (userChecker.isPresent()) {
+            throw new UserExceptions("password already exists pls change your password");
+        }
+    }
     @Override
     public UserLoginResponse loginUser(UserLoginRequest userLoginRequest) {
         if (userLoginRequest.getUsername() == null || userLoginRequest.getUsername().trim().isEmpty()) {
@@ -138,6 +144,8 @@ public class UserServicesImplementation implements UserServices {
                 throw new UserExceptions("Username not found");
             }
         }
+
+
     @Override
     public UserResetPasswordResponse resetPassword(UserResetPasswordRequest userResetPasswordRequest) {
         Optional<User> optionalUser = userRepository.findByEmail(userResetPasswordRequest.getEmail());

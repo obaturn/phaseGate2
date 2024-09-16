@@ -1,0 +1,7 @@
+{
+  "success": true,
+  "data": {
+    "message": "Login successful",
+    "loginStatus": true
+  }
+}

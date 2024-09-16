@@ -6,15 +6,13 @@ import com.semicolon.africa.dto.UserResponse.*;
 import com.semicolon.africa.services.UserServicesImplementation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import static org.springframework.http.HttpStatus.BAD_GATEWAY;
 import static org.springframework.http.HttpStatus.CREATED;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/api/v1/User")
 public class UserController {
     @Autowired
